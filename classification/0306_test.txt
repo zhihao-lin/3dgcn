@@ -1,0 +1,831 @@
+Paraneters: Namespace(axis=2, bs=8, cuda='1', dataset='../../ModelNet40_pointcloud_1024', epoch=100, interval=200, load=None, lr=0.0001, mode='train', neighbor_num=20, normal=False, random=False, record='0306_test.txt', rotate=None, save='../../model_weight/cls/0306_test.pkl', scale=None, shift=None, support_num=1)
+Model parameter number: 890952
+Model structure:
+GCN3D(
+  (conv_0): Conv_surface(
+    (relu): ReLU(inplace=True)
+  )
+  (conv_1): Conv_layer(
+    (relu): ReLU(inplace=True)
+  )
+  (pool_1): Pool_layer()
+  (conv_2): Conv_layer(
+    (relu): ReLU(inplace=True)
+  )
+  (conv_3): Conv_layer(
+    (relu): ReLU(inplace=True)
+  )
+  (pool_2): Pool_layer()
+  (conv_4): Conv_layer(
+    (relu): ReLU(inplace=True)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=1024, out_features=256, bias=True)
+    (1): Dropout(p=0.3, inplace=False)
+    (2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (3): ReLU(inplace=True)
+    (4): Linear(in_features=256, out_features=40, bias=True)
+  )
+)
+---------------- Training records ----------------
+ epoch   1 step   200 | avg loss: 3.50779 | avg acc: 0.10750
+ epoch   1 step   400 | avg loss: 3.27132 | avg acc: 0.20094
+ epoch   1 step   600 | avg loss: 3.01994 | avg acc: 0.27021
+ epoch   1 step   800 | avg loss: 2.82218 | avg acc: 0.32141
+ epoch   1 step  1000 | avg loss: 2.65486 | avg acc: 0.36288
+ epoch   1 step  1200 | avg loss: 2.51129 | avg acc: 0.39969
+= Epoch 1 | Tain Loss: 2.48991 Train Acc: 0.405 | Test Loss: 1.82345 Test Acc: 0.560 | Best Acc: 0.560
+
+ epoch   2 step   200 | avg loss: 1.65603 | avg acc: 0.61125
+ epoch   2 step   400 | avg loss: 1.56159 | avg acc: 0.63344
+ epoch   2 step   600 | avg loss: 1.50096 | avg acc: 0.64583
+ epoch   2 step   800 | avg loss: 1.45185 | avg acc: 0.66250
+ epoch   2 step  1000 | avg loss: 1.41033 | avg acc: 0.66987
+ epoch   2 step  1200 | avg loss: 1.37005 | avg acc: 0.68115
+= Epoch 2 | Tain Loss: 1.36630 Train Acc: 0.682 | Test Loss: 1.14627 Test Acc: 0.721 | Best Acc: 0.721
+
+ epoch   3 step   200 | avg loss: 1.11894 | avg acc: 0.73813
+ epoch   3 step   400 | avg loss: 1.06708 | avg acc: 0.74781
+ epoch   3 step   600 | avg loss: 1.04241 | avg acc: 0.75187
+ epoch   3 step   800 | avg loss: 1.01077 | avg acc: 0.75891
+ epoch   3 step  1000 | avg loss: 0.99025 | avg acc: 0.76313
+ epoch   3 step  1200 | avg loss: 0.97162 | avg acc: 0.76740
+= Epoch 3 | Tain Loss: 0.96840 Train Acc: 0.768 | Test Loss: 0.85680 Test Acc: 0.796 | Best Acc: 0.796
+
+ epoch   4 step   200 | avg loss: 0.80300 | avg acc: 0.79812
+ epoch   4 step   400 | avg loss: 0.80685 | avg acc: 0.79375
+ epoch   4 step   600 | avg loss: 0.79447 | avg acc: 0.80271
+ epoch   4 step   800 | avg loss: 0.77455 | avg acc: 0.80953
+ epoch   4 step  1000 | avg loss: 0.76423 | avg acc: 0.81063
+ epoch   4 step  1200 | avg loss: 0.75626 | avg acc: 0.81156
+= Epoch 4 | Tain Loss: 0.75578 Train Acc: 0.812 | Test Loss: 0.74397 Test Acc: 0.820 | Best Acc: 0.820
+
+ epoch   5 step   200 | avg loss: 0.69178 | avg acc: 0.83437
+ epoch   5 step   400 | avg loss: 0.66424 | avg acc: 0.83344
+ epoch   5 step   600 | avg loss: 0.66040 | avg acc: 0.83354
+ epoch   5 step   800 | avg loss: 0.65458 | avg acc: 0.83469
+ epoch   5 step  1000 | avg loss: 0.64491 | avg acc: 0.83750
+ epoch   5 step  1200 | avg loss: 0.63989 | avg acc: 0.83958
+= Epoch 5 | Tain Loss: 0.63968 Train Acc: 0.840 | Test Loss: 0.60351 Test Acc: 0.840 | Best Acc: 0.840
+
+ epoch   6 step   200 | avg loss: 0.59069 | avg acc: 0.84813
+ epoch   6 step   400 | avg loss: 0.58113 | avg acc: 0.84625
+ epoch   6 step   600 | avg loss: 0.57196 | avg acc: 0.85042
+ epoch   6 step   800 | avg loss: 0.56981 | avg acc: 0.85016
+ epoch   6 step  1000 | avg loss: 0.57438 | avg acc: 0.84613
+ epoch   6 step  1200 | avg loss: 0.56759 | avg acc: 0.84781
+= Epoch 6 | Tain Loss: 0.56887 Train Acc: 0.847 | Test Loss: 0.51814 Test Acc: 0.854 | Best Acc: 0.854
+
+ epoch   7 step   200 | avg loss: 0.52017 | avg acc: 0.85313
+ epoch   7 step   400 | avg loss: 0.53353 | avg acc: 0.85031
+ epoch   7 step   600 | avg loss: 0.52372 | avg acc: 0.85542
+ epoch   7 step   800 | avg loss: 0.51475 | avg acc: 0.85813
+ epoch   7 step  1000 | avg loss: 0.51295 | avg acc: 0.86025
+ epoch   7 step  1200 | avg loss: 0.50760 | avg acc: 0.86104
+= Epoch 7 | Tain Loss: 0.50785 Train Acc: 0.861 | Test Loss: 0.50607 Test Acc: 0.860 | Best Acc: 0.860
+
+ epoch   8 step   200 | avg loss: 0.49485 | avg acc: 0.86625
+ epoch   8 step   400 | avg loss: 0.48527 | avg acc: 0.86594
+ epoch   8 step   600 | avg loss: 0.47942 | avg acc: 0.86938
+ epoch   8 step   800 | avg loss: 0.47872 | avg acc: 0.86781
+ epoch   8 step  1000 | avg loss: 0.47132 | avg acc: 0.86938
+ epoch   8 step  1200 | avg loss: 0.47325 | avg acc: 0.86813
+= Epoch 8 | Tain Loss: 0.47274 Train Acc: 0.868 | Test Loss: 0.45186 Test Acc: 0.865 | Best Acc: 0.865
+
+ epoch   9 step   200 | avg loss: 0.45438 | avg acc: 0.86500
+ epoch   9 step   400 | avg loss: 0.45609 | avg acc: 0.86625
+ epoch   9 step   600 | avg loss: 0.45445 | avg acc: 0.86729
+ epoch   9 step   800 | avg loss: 0.45242 | avg acc: 0.86750
+ epoch   9 step  1000 | avg loss: 0.44179 | avg acc: 0.86975
+ epoch   9 step  1200 | avg loss: 0.44537 | avg acc: 0.86854
+= Epoch 9 | Tain Loss: 0.44463 Train Acc: 0.868 | Test Loss: 0.42307 Test Acc: 0.876 | Best Acc: 0.876
+
+ epoch  10 step   200 | avg loss: 0.41411 | avg acc: 0.87875
+ epoch  10 step   400 | avg loss: 0.43110 | avg acc: 0.87344
+ epoch  10 step   600 | avg loss: 0.42757 | avg acc: 0.87813
+ epoch  10 step   800 | avg loss: 0.41570 | avg acc: 0.88250
+ epoch  10 step  1000 | avg loss: 0.41376 | avg acc: 0.88225
+ epoch  10 step  1200 | avg loss: 0.40989 | avg acc: 0.88396
+= Epoch 10 | Tain Loss: 0.40970 Train Acc: 0.884 | Test Loss: 0.43113 Test Acc: 0.866 | Best Acc: 0.876
+
+ epoch  11 step   200 | avg loss: 0.37798 | avg acc: 0.89250
+ epoch  11 step   400 | avg loss: 0.36781 | avg acc: 0.89750
+ epoch  11 step   600 | avg loss: 0.35939 | avg acc: 0.89646
+ epoch  11 step   800 | avg loss: 0.36481 | avg acc: 0.89406
+ epoch  11 step  1000 | avg loss: 0.36133 | avg acc: 0.89525
+ epoch  11 step  1200 | avg loss: 0.35566 | avg acc: 0.89802
+= Epoch 11 | Tain Loss: 0.35717 Train Acc: 0.898 | Test Loss: 0.36755 Test Acc: 0.886 | Best Acc: 0.886
+
+ epoch  12 step   200 | avg loss: 0.37458 | avg acc: 0.89062
+ epoch  12 step   400 | avg loss: 0.35057 | avg acc: 0.89687
+ epoch  12 step   600 | avg loss: 0.36071 | avg acc: 0.89333
+ epoch  12 step   800 | avg loss: 0.34827 | avg acc: 0.89656
+ epoch  12 step  1000 | avg loss: 0.34318 | avg acc: 0.89825
+ epoch  12 step  1200 | avg loss: 0.34321 | avg acc: 0.89802
+= Epoch 12 | Tain Loss: 0.34244 Train Acc: 0.898 | Test Loss: 0.36750 Test Acc: 0.885 | Best Acc: 0.886
+
+ epoch  13 step   200 | avg loss: 0.30543 | avg acc: 0.91250
+ epoch  13 step   400 | avg loss: 0.31253 | avg acc: 0.90687
+ epoch  13 step   600 | avg loss: 0.31313 | avg acc: 0.90583
+ epoch  13 step   800 | avg loss: 0.32445 | avg acc: 0.90250
+ epoch  13 step  1000 | avg loss: 0.32701 | avg acc: 0.90350
+ epoch  13 step  1200 | avg loss: 0.32542 | avg acc: 0.90396
+= Epoch 13 | Tain Loss: 0.32616 Train Acc: 0.904 | Test Loss: 0.38905 Test Acc: 0.877 | Best Acc: 0.886
+
+ epoch  14 step   200 | avg loss: 0.28191 | avg acc: 0.91875
+ epoch  14 step   400 | avg loss: 0.30187 | avg acc: 0.91781
+ epoch  14 step   600 | avg loss: 0.30639 | avg acc: 0.91500
+ epoch  14 step   800 | avg loss: 0.31438 | avg acc: 0.91078
+ epoch  14 step  1000 | avg loss: 0.31100 | avg acc: 0.91138
+ epoch  14 step  1200 | avg loss: 0.30668 | avg acc: 0.91198
+= Epoch 14 | Tain Loss: 0.30855 Train Acc: 0.912 | Test Loss: 0.35319 Test Acc: 0.889 | Best Acc: 0.889
+
+ epoch  15 step   200 | avg loss: 0.31791 | avg acc: 0.90500
+ epoch  15 step   400 | avg loss: 0.31722 | avg acc: 0.90250
+ epoch  15 step   600 | avg loss: 0.30708 | avg acc: 0.90708
+ epoch  15 step   800 | avg loss: 0.30484 | avg acc: 0.90766
+ epoch  15 step  1000 | avg loss: 0.30838 | avg acc: 0.90687
+ epoch  15 step  1200 | avg loss: 0.30499 | avg acc: 0.90854
+= Epoch 15 | Tain Loss: 0.30308 Train Acc: 0.909 | Test Loss: 0.35922 Test Acc: 0.886 | Best Acc: 0.889
+
+ epoch  16 step   200 | avg loss: 0.27608 | avg acc: 0.91312
+ epoch  16 step   400 | avg loss: 0.29487 | avg acc: 0.91281
+ epoch  16 step   600 | avg loss: 0.29600 | avg acc: 0.91104
+ epoch  16 step   800 | avg loss: 0.30207 | avg acc: 0.91063
+ epoch  16 step  1000 | avg loss: 0.29419 | avg acc: 0.91275
+ epoch  16 step  1200 | avg loss: 0.29205 | avg acc: 0.91406
+= Epoch 16 | Tain Loss: 0.29246 Train Acc: 0.914 | Test Loss: 0.33968 Test Acc: 0.893 | Best Acc: 0.893
+
+ epoch  17 step   200 | avg loss: 0.28755 | avg acc: 0.91750
+ epoch  17 step   400 | avg loss: 0.27548 | avg acc: 0.92000
+ epoch  17 step   600 | avg loss: 0.27441 | avg acc: 0.92042
+ epoch  17 step   800 | avg loss: 0.27551 | avg acc: 0.91828
+ epoch  17 step  1000 | avg loss: 0.27543 | avg acc: 0.91738
+ epoch  17 step  1200 | avg loss: 0.27551 | avg acc: 0.91656
+= Epoch 17 | Tain Loss: 0.27645 Train Acc: 0.916 | Test Loss: 0.33901 Test Acc: 0.895 | Best Acc: 0.895
+
+ epoch  18 step   200 | avg loss: 0.27291 | avg acc: 0.91812
+ epoch  18 step   400 | avg loss: 0.26305 | avg acc: 0.91812
+ epoch  18 step   600 | avg loss: 0.27265 | avg acc: 0.91687
+ epoch  18 step   800 | avg loss: 0.27651 | avg acc: 0.91719
+ epoch  18 step  1000 | avg loss: 0.27321 | avg acc: 0.91812
+ epoch  18 step  1200 | avg loss: 0.26856 | avg acc: 0.91969
+= Epoch 18 | Tain Loss: 0.26840 Train Acc: 0.920 | Test Loss: 0.34829 Test Acc: 0.889 | Best Acc: 0.895
+
+ epoch  19 step   200 | avg loss: 0.25298 | avg acc: 0.92125
+ epoch  19 step   400 | avg loss: 0.25814 | avg acc: 0.92031
+ epoch  19 step   600 | avg loss: 0.26263 | avg acc: 0.91854
+ epoch  19 step   800 | avg loss: 0.26652 | avg acc: 0.91703
+ epoch  19 step  1000 | avg loss: 0.26560 | avg acc: 0.91750
+ epoch  19 step  1200 | avg loss: 0.26521 | avg acc: 0.91854
+= Epoch 19 | Tain Loss: 0.26478 Train Acc: 0.919 | Test Loss: 0.31850 Test Acc: 0.907 | Best Acc: 0.907
+
+ epoch  20 step   200 | avg loss: 0.25677 | avg acc: 0.92937
+ epoch  20 step   400 | avg loss: 0.26524 | avg acc: 0.92375
+ epoch  20 step   600 | avg loss: 0.25596 | avg acc: 0.92500
+ epoch  20 step   800 | avg loss: 0.25510 | avg acc: 0.92484
+ epoch  20 step  1000 | avg loss: 0.25532 | avg acc: 0.92325
+ epoch  20 step  1200 | avg loss: 0.25936 | avg acc: 0.92271
+= Epoch 20 | Tain Loss: 0.25816 Train Acc: 0.923 | Test Loss: 0.33909 Test Acc: 0.894 | Best Acc: 0.907
+
+ epoch  21 step   200 | avg loss: 0.23678 | avg acc: 0.93125
+ epoch  21 step   400 | avg loss: 0.23439 | avg acc: 0.93094
+ epoch  21 step   600 | avg loss: 0.23795 | avg acc: 0.92854
+ epoch  21 step   800 | avg loss: 0.23743 | avg acc: 0.92844
+ epoch  21 step  1000 | avg loss: 0.23748 | avg acc: 0.92800
+ epoch  21 step  1200 | avg loss: 0.23760 | avg acc: 0.92760
+= Epoch 21 | Tain Loss: 0.23570 Train Acc: 0.928 | Test Loss: 0.31731 Test Acc: 0.897 | Best Acc: 0.907
+
+ epoch  22 step   200 | avg loss: 0.23092 | avg acc: 0.92625
+ epoch  22 step   400 | avg loss: 0.22760 | avg acc: 0.93000
+ epoch  22 step   600 | avg loss: 0.22243 | avg acc: 0.93271
+ epoch  22 step   800 | avg loss: 0.22582 | avg acc: 0.93094
+ epoch  22 step  1000 | avg loss: 0.22494 | avg acc: 0.93200
+ epoch  22 step  1200 | avg loss: 0.22215 | avg acc: 0.93281
+= Epoch 22 | Tain Loss: 0.22289 Train Acc: 0.932 | Test Loss: 0.31955 Test Acc: 0.900 | Best Acc: 0.907
+
+ epoch  23 step   200 | avg loss: 0.19749 | avg acc: 0.93812
+ epoch  23 step   400 | avg loss: 0.21401 | avg acc: 0.93437
+ epoch  23 step   600 | avg loss: 0.21169 | avg acc: 0.93583
+ epoch  23 step   800 | avg loss: 0.21606 | avg acc: 0.93469
+ epoch  23 step  1000 | avg loss: 0.21522 | avg acc: 0.93375
+ epoch  23 step  1200 | avg loss: 0.21743 | avg acc: 0.93312
+= Epoch 23 | Tain Loss: 0.21771 Train Acc: 0.933 | Test Loss: 0.31280 Test Acc: 0.902 | Best Acc: 0.907
+
+ epoch  24 step   200 | avg loss: 0.20974 | avg acc: 0.93437
+ epoch  24 step   400 | avg loss: 0.20692 | avg acc: 0.93719
+ epoch  24 step   600 | avg loss: 0.20618 | avg acc: 0.93708
+ epoch  24 step   800 | avg loss: 0.21267 | avg acc: 0.93469
+ epoch  24 step  1000 | avg loss: 0.21493 | avg acc: 0.93437
+ epoch  24 step  1200 | avg loss: 0.21515 | avg acc: 0.93406
+= Epoch 24 | Tain Loss: 0.21477 Train Acc: 0.934 | Test Loss: 0.31739 Test Acc: 0.894 | Best Acc: 0.907
+
+ epoch  25 step   200 | avg loss: 0.21307 | avg acc: 0.93312
+ epoch  25 step   400 | avg loss: 0.19519 | avg acc: 0.94063
+ epoch  25 step   600 | avg loss: 0.20010 | avg acc: 0.93792
+ epoch  25 step   800 | avg loss: 0.19961 | avg acc: 0.93844
+ epoch  25 step  1000 | avg loss: 0.19916 | avg acc: 0.93912
+ epoch  25 step  1200 | avg loss: 0.20195 | avg acc: 0.93760
+= Epoch 25 | Tain Loss: 0.20136 Train Acc: 0.938 | Test Loss: 0.31595 Test Acc: 0.898 | Best Acc: 0.907
+
+ epoch  26 step   200 | avg loss: 0.20418 | avg acc: 0.93625
+ epoch  26 step   400 | avg loss: 0.20959 | avg acc: 0.93594
+ epoch  26 step   600 | avg loss: 0.20883 | avg acc: 0.93354
+ epoch  26 step   800 | avg loss: 0.20967 | avg acc: 0.93578
+ epoch  26 step  1000 | avg loss: 0.21033 | avg acc: 0.93688
+ epoch  26 step  1200 | avg loss: 0.21262 | avg acc: 0.93563
+= Epoch 26 | Tain Loss: 0.21082 Train Acc: 0.936 | Test Loss: 0.30100 Test Acc: 0.907 | Best Acc: 0.907
+
+ epoch  27 step   200 | avg loss: 0.21011 | avg acc: 0.93375
+ epoch  27 step   400 | avg loss: 0.20316 | avg acc: 0.93937
+ epoch  27 step   600 | avg loss: 0.19701 | avg acc: 0.94000
+ epoch  27 step   800 | avg loss: 0.19305 | avg acc: 0.94109
+ epoch  27 step  1000 | avg loss: 0.19676 | avg acc: 0.94063
+ epoch  27 step  1200 | avg loss: 0.19990 | avg acc: 0.93948
+= Epoch 27 | Tain Loss: 0.20178 Train Acc: 0.939 | Test Loss: 0.30474 Test Acc: 0.902 | Best Acc: 0.907
+
+ epoch  28 step   200 | avg loss: 0.20824 | avg acc: 0.94250
+ epoch  28 step   400 | avg loss: 0.19566 | avg acc: 0.94375
+ epoch  28 step   600 | avg loss: 0.19085 | avg acc: 0.94500
+ epoch  28 step   800 | avg loss: 0.18994 | avg acc: 0.94359
+ epoch  28 step  1000 | avg loss: 0.19031 | avg acc: 0.94375
+ epoch  28 step  1200 | avg loss: 0.19562 | avg acc: 0.94240
+= Epoch 28 | Tain Loss: 0.19397 Train Acc: 0.943 | Test Loss: 0.31547 Test Acc: 0.902 | Best Acc: 0.907
+
+ epoch  29 step   200 | avg loss: 0.20349 | avg acc: 0.93625
+ epoch  29 step   400 | avg loss: 0.18807 | avg acc: 0.94375
+ epoch  29 step   600 | avg loss: 0.18648 | avg acc: 0.94417
+ epoch  29 step   800 | avg loss: 0.19209 | avg acc: 0.94156
+ epoch  29 step  1000 | avg loss: 0.19477 | avg acc: 0.94088
+ epoch  29 step  1200 | avg loss: 0.19405 | avg acc: 0.94073
+= Epoch 29 | Tain Loss: 0.19317 Train Acc: 0.941 | Test Loss: 0.31999 Test Acc: 0.898 | Best Acc: 0.907
+
+ epoch  30 step   200 | avg loss: 0.19262 | avg acc: 0.94000
+ epoch  30 step   400 | avg loss: 0.19029 | avg acc: 0.94031
+ epoch  30 step   600 | avg loss: 0.19063 | avg acc: 0.94229
+ epoch  30 step   800 | avg loss: 0.18581 | avg acc: 0.94312
+ epoch  30 step  1000 | avg loss: 0.18273 | avg acc: 0.94463
+ epoch  30 step  1200 | avg loss: 0.18439 | avg acc: 0.94281
+= Epoch 30 | Tain Loss: 0.18571 Train Acc: 0.942 | Test Loss: 0.30955 Test Acc: 0.907 | Best Acc: 0.907
+
+ epoch  31 step   200 | avg loss: 0.18242 | avg acc: 0.94625
+ epoch  31 step   400 | avg loss: 0.17406 | avg acc: 0.94906
+ epoch  31 step   600 | avg loss: 0.17425 | avg acc: 0.94812
+ epoch  31 step   800 | avg loss: 0.17220 | avg acc: 0.94859
+ epoch  31 step  1000 | avg loss: 0.17140 | avg acc: 0.94850
+ epoch  31 step  1200 | avg loss: 0.17316 | avg acc: 0.94729
+= Epoch 31 | Tain Loss: 0.17438 Train Acc: 0.947 | Test Loss: 0.30375 Test Acc: 0.900 | Best Acc: 0.907
+
+ epoch  32 step   200 | avg loss: 0.15626 | avg acc: 0.95000
+ epoch  32 step   400 | avg loss: 0.16747 | avg acc: 0.94688
+ epoch  32 step   600 | avg loss: 0.16810 | avg acc: 0.94667
+ epoch  32 step   800 | avg loss: 0.17065 | avg acc: 0.94547
+ epoch  32 step  1000 | avg loss: 0.17438 | avg acc: 0.94563
+ epoch  32 step  1200 | avg loss: 0.17327 | avg acc: 0.94604
+= Epoch 32 | Tain Loss: 0.17424 Train Acc: 0.946 | Test Loss: 0.30228 Test Acc: 0.905 | Best Acc: 0.907
+
+ epoch  33 step   200 | avg loss: 0.17539 | avg acc: 0.94500
+ epoch  33 step   400 | avg loss: 0.17165 | avg acc: 0.94594
+ epoch  33 step   600 | avg loss: 0.17178 | avg acc: 0.94667
+ epoch  33 step   800 | avg loss: 0.17121 | avg acc: 0.94703
+ epoch  33 step  1000 | avg loss: 0.16971 | avg acc: 0.94775
+ epoch  33 step  1200 | avg loss: 0.16728 | avg acc: 0.94802
+= Epoch 33 | Tain Loss: 0.16669 Train Acc: 0.948 | Test Loss: 0.29638 Test Acc: 0.905 | Best Acc: 0.907
+
+ epoch  34 step   200 | avg loss: 0.17195 | avg acc: 0.94250
+ epoch  34 step   400 | avg loss: 0.17197 | avg acc: 0.94406
+ epoch  34 step   600 | avg loss: 0.16852 | avg acc: 0.94437
+ epoch  34 step   800 | avg loss: 0.16781 | avg acc: 0.94516
+ epoch  34 step  1000 | avg loss: 0.16585 | avg acc: 0.94588
+ epoch  34 step  1200 | avg loss: 0.16649 | avg acc: 0.94583
+= Epoch 34 | Tain Loss: 0.16824 Train Acc: 0.945 | Test Loss: 0.30872 Test Acc: 0.905 | Best Acc: 0.907
+
+ epoch  35 step   200 | avg loss: 0.17354 | avg acc: 0.94812
+ epoch  35 step   400 | avg loss: 0.18115 | avg acc: 0.94437
+ epoch  35 step   600 | avg loss: 0.17065 | avg acc: 0.94750
+ epoch  35 step   800 | avg loss: 0.17120 | avg acc: 0.94719
+ epoch  35 step  1000 | avg loss: 0.16522 | avg acc: 0.94888
+ epoch  35 step  1200 | avg loss: 0.16367 | avg acc: 0.94885
+= Epoch 35 | Tain Loss: 0.16631 Train Acc: 0.949 | Test Loss: 0.29803 Test Acc: 0.908 | Best Acc: 0.908
+
+ epoch  36 step   200 | avg loss: 0.16536 | avg acc: 0.95375
+ epoch  36 step   400 | avg loss: 0.15453 | avg acc: 0.95437
+ epoch  36 step   600 | avg loss: 0.15817 | avg acc: 0.95125
+ epoch  36 step   800 | avg loss: 0.15935 | avg acc: 0.95141
+ epoch  36 step  1000 | avg loss: 0.15801 | avg acc: 0.95150
+ epoch  36 step  1200 | avg loss: 0.15977 | avg acc: 0.95042
+= Epoch 36 | Tain Loss: 0.16021 Train Acc: 0.950 | Test Loss: 0.31125 Test Acc: 0.901 | Best Acc: 0.908
+
+ epoch  37 step   200 | avg loss: 0.15650 | avg acc: 0.95312
+ epoch  37 step   400 | avg loss: 0.16465 | avg acc: 0.94937
+ epoch  37 step   600 | avg loss: 0.16172 | avg acc: 0.94979
+ epoch  37 step   800 | avg loss: 0.16896 | avg acc: 0.94625
+ epoch  37 step  1000 | avg loss: 0.16507 | avg acc: 0.94775
+ epoch  37 step  1200 | avg loss: 0.16613 | avg acc: 0.94781
+= Epoch 37 | Tain Loss: 0.16656 Train Acc: 0.948 | Test Loss: 0.30136 Test Acc: 0.907 | Best Acc: 0.908
+
+ epoch  38 step   200 | avg loss: 0.16252 | avg acc: 0.94812
+ epoch  38 step   400 | avg loss: 0.16118 | avg acc: 0.95094
+ epoch  38 step   600 | avg loss: 0.15812 | avg acc: 0.95354
+ epoch  38 step   800 | avg loss: 0.16318 | avg acc: 0.95141
+ epoch  38 step  1000 | avg loss: 0.16338 | avg acc: 0.95163
+ epoch  38 step  1200 | avg loss: 0.16457 | avg acc: 0.95094
+= Epoch 38 | Tain Loss: 0.16430 Train Acc: 0.951 | Test Loss: 0.28599 Test Acc: 0.912 | Best Acc: 0.912
+
+ epoch  39 step   200 | avg loss: 0.16428 | avg acc: 0.94750
+ epoch  39 step   400 | avg loss: 0.16016 | avg acc: 0.94875
+ epoch  39 step   600 | avg loss: 0.16721 | avg acc: 0.94604
+ epoch  39 step   800 | avg loss: 0.16425 | avg acc: 0.94750
+ epoch  39 step  1000 | avg loss: 0.16309 | avg acc: 0.94912
+ epoch  39 step  1200 | avg loss: 0.15898 | avg acc: 0.95063
+= Epoch 39 | Tain Loss: 0.16026 Train Acc: 0.950 | Test Loss: 0.30904 Test Acc: 0.902 | Best Acc: 0.912
+
+ epoch  40 step   200 | avg loss: 0.14324 | avg acc: 0.95875
+ epoch  40 step   400 | avg loss: 0.15031 | avg acc: 0.95156
+ epoch  40 step   600 | avg loss: 0.15063 | avg acc: 0.95312
+ epoch  40 step   800 | avg loss: 0.15689 | avg acc: 0.95125
+ epoch  40 step  1000 | avg loss: 0.15327 | avg acc: 0.95312
+ epoch  40 step  1200 | avg loss: 0.15572 | avg acc: 0.95240
+= Epoch 40 | Tain Loss: 0.15686 Train Acc: 0.952 | Test Loss: 0.31149 Test Acc: 0.900 | Best Acc: 0.912
+
+ epoch  41 step   200 | avg loss: 0.15679 | avg acc: 0.94688
+ epoch  41 step   400 | avg loss: 0.14074 | avg acc: 0.95375
+ epoch  41 step   600 | avg loss: 0.14321 | avg acc: 0.95396
+ epoch  41 step   800 | avg loss: 0.14596 | avg acc: 0.95406
+ epoch  41 step  1000 | avg loss: 0.14742 | avg acc: 0.95400
+ epoch  41 step  1200 | avg loss: 0.14754 | avg acc: 0.95427
+= Epoch 41 | Tain Loss: 0.14836 Train Acc: 0.954 | Test Loss: 0.30560 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  42 step   200 | avg loss: 0.14651 | avg acc: 0.95250
+ epoch  42 step   400 | avg loss: 0.15203 | avg acc: 0.95219
+ epoch  42 step   600 | avg loss: 0.15254 | avg acc: 0.95188
+ epoch  42 step   800 | avg loss: 0.15017 | avg acc: 0.95359
+ epoch  42 step  1000 | avg loss: 0.15088 | avg acc: 0.95425
+ epoch  42 step  1200 | avg loss: 0.15065 | avg acc: 0.95312
+= Epoch 42 | Tain Loss: 0.15075 Train Acc: 0.953 | Test Loss: 0.28234 Test Acc: 0.910 | Best Acc: 0.912
+
+ epoch  43 step   200 | avg loss: 0.13042 | avg acc: 0.96125
+ epoch  43 step   400 | avg loss: 0.14739 | avg acc: 0.95562
+ epoch  43 step   600 | avg loss: 0.15048 | avg acc: 0.95542
+ epoch  43 step   800 | avg loss: 0.14785 | avg acc: 0.95688
+ epoch  43 step  1000 | avg loss: 0.14742 | avg acc: 0.95725
+ epoch  43 step  1200 | avg loss: 0.14907 | avg acc: 0.95583
+= Epoch 43 | Tain Loss: 0.14908 Train Acc: 0.955 | Test Loss: 0.29881 Test Acc: 0.906 | Best Acc: 0.912
+
+ epoch  44 step   200 | avg loss: 0.16115 | avg acc: 0.95125
+ epoch  44 step   400 | avg loss: 0.14396 | avg acc: 0.95594
+ epoch  44 step   600 | avg loss: 0.14042 | avg acc: 0.95750
+ epoch  44 step   800 | avg loss: 0.14139 | avg acc: 0.95625
+ epoch  44 step  1000 | avg loss: 0.14278 | avg acc: 0.95575
+ epoch  44 step  1200 | avg loss: 0.14298 | avg acc: 0.95552
+= Epoch 44 | Tain Loss: 0.14299 Train Acc: 0.956 | Test Loss: 0.31371 Test Acc: 0.901 | Best Acc: 0.912
+
+ epoch  45 step   200 | avg loss: 0.12734 | avg acc: 0.96688
+ epoch  45 step   400 | avg loss: 0.12640 | avg acc: 0.96406
+ epoch  45 step   600 | avg loss: 0.13447 | avg acc: 0.96000
+ epoch  45 step   800 | avg loss: 0.13946 | avg acc: 0.95688
+ epoch  45 step  1000 | avg loss: 0.14235 | avg acc: 0.95562
+ epoch  45 step  1200 | avg loss: 0.14493 | avg acc: 0.95542
+= Epoch 45 | Tain Loss: 0.14630 Train Acc: 0.955 | Test Loss: 0.31138 Test Acc: 0.903 | Best Acc: 0.912
+
+ epoch  46 step   200 | avg loss: 0.14129 | avg acc: 0.95312
+ epoch  46 step   400 | avg loss: 0.13873 | avg acc: 0.95375
+ epoch  46 step   600 | avg loss: 0.14083 | avg acc: 0.95542
+ epoch  46 step   800 | avg loss: 0.14505 | avg acc: 0.95422
+ epoch  46 step  1000 | avg loss: 0.14447 | avg acc: 0.95400
+ epoch  46 step  1200 | avg loss: 0.14049 | avg acc: 0.95552
+= Epoch 46 | Tain Loss: 0.14109 Train Acc: 0.955 | Test Loss: 0.30082 Test Acc: 0.901 | Best Acc: 0.912
+
+ epoch  47 step   200 | avg loss: 0.13199 | avg acc: 0.95500
+ epoch  47 step   400 | avg loss: 0.14490 | avg acc: 0.95156
+ epoch  47 step   600 | avg loss: 0.14247 | avg acc: 0.95396
+ epoch  47 step   800 | avg loss: 0.14199 | avg acc: 0.95484
+ epoch  47 step  1000 | avg loss: 0.14365 | avg acc: 0.95437
+ epoch  47 step  1200 | avg loss: 0.14338 | avg acc: 0.95510
+= Epoch 47 | Tain Loss: 0.14563 Train Acc: 0.954 | Test Loss: 0.30312 Test Acc: 0.907 | Best Acc: 0.912
+
+ epoch  48 step   200 | avg loss: 0.13401 | avg acc: 0.96313
+ epoch  48 step   400 | avg loss: 0.14199 | avg acc: 0.96000
+ epoch  48 step   600 | avg loss: 0.14391 | avg acc: 0.95750
+ epoch  48 step   800 | avg loss: 0.14352 | avg acc: 0.95859
+ epoch  48 step  1000 | avg loss: 0.14405 | avg acc: 0.95762
+ epoch  48 step  1200 | avg loss: 0.14278 | avg acc: 0.95813
+= Epoch 48 | Tain Loss: 0.14492 Train Acc: 0.957 | Test Loss: 0.30146 Test Acc: 0.903 | Best Acc: 0.912
+
+ epoch  49 step   200 | avg loss: 0.13060 | avg acc: 0.96250
+ epoch  49 step   400 | avg loss: 0.13170 | avg acc: 0.96156
+ epoch  49 step   600 | avg loss: 0.13462 | avg acc: 0.96125
+ epoch  49 step   800 | avg loss: 0.14062 | avg acc: 0.95828
+ epoch  49 step  1000 | avg loss: 0.14060 | avg acc: 0.95900
+ epoch  49 step  1200 | avg loss: 0.14149 | avg acc: 0.95906
+= Epoch 49 | Tain Loss: 0.14146 Train Acc: 0.959 | Test Loss: 0.29466 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  50 step   200 | avg loss: 0.14968 | avg acc: 0.94688
+ epoch  50 step   400 | avg loss: 0.14547 | avg acc: 0.94625
+ epoch  50 step   600 | avg loss: 0.13334 | avg acc: 0.95521
+ epoch  50 step   800 | avg loss: 0.13792 | avg acc: 0.95469
+ epoch  50 step  1000 | avg loss: 0.13704 | avg acc: 0.95550
+ epoch  50 step  1200 | avg loss: 0.13743 | avg acc: 0.95625
+= Epoch 50 | Tain Loss: 0.13892 Train Acc: 0.956 | Test Loss: 0.30261 Test Acc: 0.903 | Best Acc: 0.912
+
+ epoch  51 step   200 | avg loss: 0.15065 | avg acc: 0.95188
+ epoch  51 step   400 | avg loss: 0.14788 | avg acc: 0.95500
+ epoch  51 step   600 | avg loss: 0.14082 | avg acc: 0.95979
+ epoch  51 step   800 | avg loss: 0.13986 | avg acc: 0.96000
+ epoch  51 step  1000 | avg loss: 0.14071 | avg acc: 0.95925
+ epoch  51 step  1200 | avg loss: 0.13930 | avg acc: 0.95917
+= Epoch 51 | Tain Loss: 0.13869 Train Acc: 0.959 | Test Loss: 0.30699 Test Acc: 0.900 | Best Acc: 0.912
+
+ epoch  52 step   200 | avg loss: 0.14981 | avg acc: 0.95813
+ epoch  52 step   400 | avg loss: 0.13614 | avg acc: 0.95781
+ epoch  52 step   600 | avg loss: 0.13782 | avg acc: 0.95896
+ epoch  52 step   800 | avg loss: 0.13804 | avg acc: 0.95875
+ epoch  52 step  1000 | avg loss: 0.13814 | avg acc: 0.95850
+ epoch  52 step  1200 | avg loss: 0.13666 | avg acc: 0.95885
+= Epoch 52 | Tain Loss: 0.13754 Train Acc: 0.959 | Test Loss: 0.30366 Test Acc: 0.907 | Best Acc: 0.912
+
+ epoch  53 step   200 | avg loss: 0.14094 | avg acc: 0.96000
+ epoch  53 step   400 | avg loss: 0.14670 | avg acc: 0.95562
+ epoch  53 step   600 | avg loss: 0.14499 | avg acc: 0.95729
+ epoch  53 step   800 | avg loss: 0.14242 | avg acc: 0.95766
+ epoch  53 step  1000 | avg loss: 0.13959 | avg acc: 0.95862
+ epoch  53 step  1200 | avg loss: 0.13747 | avg acc: 0.95917
+= Epoch 53 | Tain Loss: 0.13774 Train Acc: 0.959 | Test Loss: 0.29539 Test Acc: 0.900 | Best Acc: 0.912
+
+ epoch  54 step   200 | avg loss: 0.12599 | avg acc: 0.96125
+ epoch  54 step   400 | avg loss: 0.13312 | avg acc: 0.95969
+ epoch  54 step   600 | avg loss: 0.13344 | avg acc: 0.95854
+ epoch  54 step   800 | avg loss: 0.13575 | avg acc: 0.95703
+ epoch  54 step  1000 | avg loss: 0.13673 | avg acc: 0.95750
+ epoch  54 step  1200 | avg loss: 0.13733 | avg acc: 0.95667
+= Epoch 54 | Tain Loss: 0.13699 Train Acc: 0.957 | Test Loss: 0.29342 Test Acc: 0.906 | Best Acc: 0.912
+
+ epoch  55 step   200 | avg loss: 0.13226 | avg acc: 0.95625
+ epoch  55 step   400 | avg loss: 0.12794 | avg acc: 0.96000
+ epoch  55 step   600 | avg loss: 0.12472 | avg acc: 0.96104
+ epoch  55 step   800 | avg loss: 0.12550 | avg acc: 0.96156
+ epoch  55 step  1000 | avg loss: 0.12966 | avg acc: 0.96113
+ epoch  55 step  1200 | avg loss: 0.13139 | avg acc: 0.95979
+= Epoch 55 | Tain Loss: 0.13089 Train Acc: 0.960 | Test Loss: 0.31331 Test Acc: 0.902 | Best Acc: 0.912
+
+ epoch  56 step   200 | avg loss: 0.12141 | avg acc: 0.96562
+ epoch  56 step   400 | avg loss: 0.12851 | avg acc: 0.96125
+ epoch  56 step   600 | avg loss: 0.12432 | avg acc: 0.96167
+ epoch  56 step   800 | avg loss: 0.12488 | avg acc: 0.96156
+ epoch  56 step  1000 | avg loss: 0.12462 | avg acc: 0.96188
+ epoch  56 step  1200 | avg loss: 0.12817 | avg acc: 0.96042
+= Epoch 56 | Tain Loss: 0.12794 Train Acc: 0.961 | Test Loss: 0.29598 Test Acc: 0.905 | Best Acc: 0.912
+
+ epoch  57 step   200 | avg loss: 0.13780 | avg acc: 0.95625
+ epoch  57 step   400 | avg loss: 0.13564 | avg acc: 0.95719
+ epoch  57 step   600 | avg loss: 0.13325 | avg acc: 0.95813
+ epoch  57 step   800 | avg loss: 0.13331 | avg acc: 0.95797
+ epoch  57 step  1000 | avg loss: 0.13332 | avg acc: 0.95788
+ epoch  57 step  1200 | avg loss: 0.13310 | avg acc: 0.95865
+= Epoch 57 | Tain Loss: 0.13221 Train Acc: 0.959 | Test Loss: 0.29657 Test Acc: 0.907 | Best Acc: 0.912
+
+ epoch  58 step   200 | avg loss: 0.10872 | avg acc: 0.97375
+ epoch  58 step   400 | avg loss: 0.12094 | avg acc: 0.96719
+ epoch  58 step   600 | avg loss: 0.12458 | avg acc: 0.96562
+ epoch  58 step   800 | avg loss: 0.13165 | avg acc: 0.96250
+ epoch  58 step  1000 | avg loss: 0.13168 | avg acc: 0.96237
+ epoch  58 step  1200 | avg loss: 0.13312 | avg acc: 0.96135
+= Epoch 58 | Tain Loss: 0.13308 Train Acc: 0.961 | Test Loss: 0.30899 Test Acc: 0.901 | Best Acc: 0.912
+
+ epoch  59 step   200 | avg loss: 0.12556 | avg acc: 0.96250
+ epoch  59 step   400 | avg loss: 0.12961 | avg acc: 0.96125
+ epoch  59 step   600 | avg loss: 0.12802 | avg acc: 0.96250
+ epoch  59 step   800 | avg loss: 0.12923 | avg acc: 0.96109
+ epoch  59 step  1000 | avg loss: 0.13243 | avg acc: 0.96113
+ epoch  59 step  1200 | avg loss: 0.13486 | avg acc: 0.96000
+= Epoch 59 | Tain Loss: 0.13446 Train Acc: 0.960 | Test Loss: 0.28965 Test Acc: 0.908 | Best Acc: 0.912
+
+ epoch  60 step   200 | avg loss: 0.12385 | avg acc: 0.96813
+ epoch  60 step   400 | avg loss: 0.12264 | avg acc: 0.96781
+ epoch  60 step   600 | avg loss: 0.12676 | avg acc: 0.96375
+ epoch  60 step   800 | avg loss: 0.12719 | avg acc: 0.96234
+ epoch  60 step  1000 | avg loss: 0.12768 | avg acc: 0.96213
+ epoch  60 step  1200 | avg loss: 0.12628 | avg acc: 0.96313
+= Epoch 60 | Tain Loss: 0.12654 Train Acc: 0.963 | Test Loss: 0.30439 Test Acc: 0.905 | Best Acc: 0.912
+
+ epoch  61 step   200 | avg loss: 0.12659 | avg acc: 0.96000
+ epoch  61 step   400 | avg loss: 0.12556 | avg acc: 0.96000
+ epoch  61 step   600 | avg loss: 0.12237 | avg acc: 0.96292
+ epoch  61 step   800 | avg loss: 0.12762 | avg acc: 0.96125
+ epoch  61 step  1000 | avg loss: 0.12860 | avg acc: 0.96050
+ epoch  61 step  1200 | avg loss: 0.12816 | avg acc: 0.96062
+= Epoch 61 | Tain Loss: 0.12854 Train Acc: 0.960 | Test Loss: 0.28787 Test Acc: 0.910 | Best Acc: 0.912
+
+ epoch  62 step   200 | avg loss: 0.14071 | avg acc: 0.95875
+ epoch  62 step   400 | avg loss: 0.13230 | avg acc: 0.96031
+ epoch  62 step   600 | avg loss: 0.13180 | avg acc: 0.96021
+ epoch  62 step   800 | avg loss: 0.13054 | avg acc: 0.96031
+ epoch  62 step  1000 | avg loss: 0.12994 | avg acc: 0.96050
+ epoch  62 step  1200 | avg loss: 0.13068 | avg acc: 0.96094
+= Epoch 62 | Tain Loss: 0.13070 Train Acc: 0.961 | Test Loss: 0.29819 Test Acc: 0.901 | Best Acc: 0.912
+
+ epoch  63 step   200 | avg loss: 0.13822 | avg acc: 0.95688
+ epoch  63 step   400 | avg loss: 0.12640 | avg acc: 0.96281
+ epoch  63 step   600 | avg loss: 0.12348 | avg acc: 0.96417
+ epoch  63 step   800 | avg loss: 0.12445 | avg acc: 0.96406
+ epoch  63 step  1000 | avg loss: 0.12615 | avg acc: 0.96262
+ epoch  63 step  1200 | avg loss: 0.12765 | avg acc: 0.96250
+= Epoch 63 | Tain Loss: 0.12725 Train Acc: 0.963 | Test Loss: 0.30106 Test Acc: 0.900 | Best Acc: 0.912
+
+ epoch  64 step   200 | avg loss: 0.12385 | avg acc: 0.96000
+ epoch  64 step   400 | avg loss: 0.13710 | avg acc: 0.95437
+ epoch  64 step   600 | avg loss: 0.13328 | avg acc: 0.95750
+ epoch  64 step   800 | avg loss: 0.12849 | avg acc: 0.96031
+ epoch  64 step  1000 | avg loss: 0.12663 | avg acc: 0.96113
+ epoch  64 step  1200 | avg loss: 0.12496 | avg acc: 0.96188
+= Epoch 64 | Tain Loss: 0.12576 Train Acc: 0.961 | Test Loss: 0.29387 Test Acc: 0.905 | Best Acc: 0.912
+
+ epoch  65 step   200 | avg loss: 0.13219 | avg acc: 0.96000
+ epoch  65 step   400 | avg loss: 0.12327 | avg acc: 0.96500
+ epoch  65 step   600 | avg loss: 0.12800 | avg acc: 0.96250
+ epoch  65 step   800 | avg loss: 0.12668 | avg acc: 0.96266
+ epoch  65 step  1000 | avg loss: 0.12373 | avg acc: 0.96488
+ epoch  65 step  1200 | avg loss: 0.12477 | avg acc: 0.96385
+= Epoch 65 | Tain Loss: 0.12542 Train Acc: 0.964 | Test Loss: 0.30449 Test Acc: 0.901 | Best Acc: 0.912
+
+ epoch  66 step   200 | avg loss: 0.12559 | avg acc: 0.96375
+ epoch  66 step   400 | avg loss: 0.12289 | avg acc: 0.96219
+ epoch  66 step   600 | avg loss: 0.12220 | avg acc: 0.96271
+ epoch  66 step   800 | avg loss: 0.12340 | avg acc: 0.96313
+ epoch  66 step  1000 | avg loss: 0.12208 | avg acc: 0.96313
+ epoch  66 step  1200 | avg loss: 0.12304 | avg acc: 0.96281
+= Epoch 66 | Tain Loss: 0.12297 Train Acc: 0.963 | Test Loss: 0.29771 Test Acc: 0.902 | Best Acc: 0.912
+
+ epoch  67 step   200 | avg loss: 0.12828 | avg acc: 0.95750
+ epoch  67 step   400 | avg loss: 0.12974 | avg acc: 0.95906
+ epoch  67 step   600 | avg loss: 0.12750 | avg acc: 0.96042
+ epoch  67 step   800 | avg loss: 0.12417 | avg acc: 0.96141
+ epoch  67 step  1000 | avg loss: 0.12633 | avg acc: 0.96137
+ epoch  67 step  1200 | avg loss: 0.12468 | avg acc: 0.96250
+= Epoch 67 | Tain Loss: 0.12525 Train Acc: 0.962 | Test Loss: 0.30008 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  68 step   200 | avg loss: 0.12043 | avg acc: 0.96313
+ epoch  68 step   400 | avg loss: 0.12419 | avg acc: 0.96219
+ epoch  68 step   600 | avg loss: 0.12859 | avg acc: 0.96167
+ epoch  68 step   800 | avg loss: 0.13040 | avg acc: 0.96188
+ epoch  68 step  1000 | avg loss: 0.12859 | avg acc: 0.96213
+ epoch  68 step  1200 | avg loss: 0.12765 | avg acc: 0.96229
+= Epoch 68 | Tain Loss: 0.12762 Train Acc: 0.962 | Test Loss: 0.29521 Test Acc: 0.906 | Best Acc: 0.912
+
+ epoch  69 step   200 | avg loss: 0.13669 | avg acc: 0.96000
+ epoch  69 step   400 | avg loss: 0.12652 | avg acc: 0.96250
+ epoch  69 step   600 | avg loss: 0.12937 | avg acc: 0.96208
+ epoch  69 step   800 | avg loss: 0.12918 | avg acc: 0.96172
+ epoch  69 step  1000 | avg loss: 0.12891 | avg acc: 0.96162
+ epoch  69 step  1200 | avg loss: 0.13089 | avg acc: 0.96062
+= Epoch 69 | Tain Loss: 0.13013 Train Acc: 0.961 | Test Loss: 0.29575 Test Acc: 0.908 | Best Acc: 0.912
+
+ epoch  70 step   200 | avg loss: 0.12786 | avg acc: 0.96375
+ epoch  70 step   400 | avg loss: 0.12088 | avg acc: 0.96500
+ epoch  70 step   600 | avg loss: 0.12092 | avg acc: 0.96375
+ epoch  70 step   800 | avg loss: 0.12373 | avg acc: 0.96125
+ epoch  70 step  1000 | avg loss: 0.12349 | avg acc: 0.96162
+ epoch  70 step  1200 | avg loss: 0.12589 | avg acc: 0.96135
+= Epoch 70 | Tain Loss: 0.12712 Train Acc: 0.961 | Test Loss: 0.30449 Test Acc: 0.902 | Best Acc: 0.912
+
+ epoch  71 step   200 | avg loss: 0.12782 | avg acc: 0.95813
+ epoch  71 step   400 | avg loss: 0.12528 | avg acc: 0.96281
+ epoch  71 step   600 | avg loss: 0.12848 | avg acc: 0.96125
+ epoch  71 step   800 | avg loss: 0.12996 | avg acc: 0.96109
+ epoch  71 step  1000 | avg loss: 0.12816 | avg acc: 0.96225
+ epoch  71 step  1200 | avg loss: 0.13065 | avg acc: 0.96083
+= Epoch 71 | Tain Loss: 0.13088 Train Acc: 0.961 | Test Loss: 0.31407 Test Acc: 0.895 | Best Acc: 0.912
+
+ epoch  72 step   200 | avg loss: 0.12726 | avg acc: 0.96000
+ epoch  72 step   400 | avg loss: 0.13103 | avg acc: 0.95937
+ epoch  72 step   600 | avg loss: 0.13045 | avg acc: 0.95979
+ epoch  72 step   800 | avg loss: 0.13035 | avg acc: 0.95953
+ epoch  72 step  1000 | avg loss: 0.12825 | avg acc: 0.96075
+ epoch  72 step  1200 | avg loss: 0.12571 | avg acc: 0.96177
+= Epoch 72 | Tain Loss: 0.12694 Train Acc: 0.961 | Test Loss: 0.29778 Test Acc: 0.908 | Best Acc: 0.912
+
+ epoch  73 step   200 | avg loss: 0.12887 | avg acc: 0.95875
+ epoch  73 step   400 | avg loss: 0.14007 | avg acc: 0.95281
+ epoch  73 step   600 | avg loss: 0.13391 | avg acc: 0.95500
+ epoch  73 step   800 | avg loss: 0.13140 | avg acc: 0.95750
+ epoch  73 step  1000 | avg loss: 0.12885 | avg acc: 0.95937
+ epoch  73 step  1200 | avg loss: 0.13144 | avg acc: 0.95865
+= Epoch 73 | Tain Loss: 0.13220 Train Acc: 0.958 | Test Loss: 0.29438 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  74 step   200 | avg loss: 0.12129 | avg acc: 0.96125
+ epoch  74 step   400 | avg loss: 0.13063 | avg acc: 0.96188
+ epoch  74 step   600 | avg loss: 0.13117 | avg acc: 0.95979
+ epoch  74 step   800 | avg loss: 0.13034 | avg acc: 0.95828
+ epoch  74 step  1000 | avg loss: 0.13111 | avg acc: 0.95988
+ epoch  74 step  1200 | avg loss: 0.13052 | avg acc: 0.95979
+= Epoch 74 | Tain Loss: 0.12981 Train Acc: 0.960 | Test Loss: 0.30430 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  75 step   200 | avg loss: 0.15254 | avg acc: 0.95125
+ epoch  75 step   400 | avg loss: 0.14357 | avg acc: 0.95469
+ epoch  75 step   600 | avg loss: 0.13271 | avg acc: 0.96000
+ epoch  75 step   800 | avg loss: 0.13020 | avg acc: 0.96109
+ epoch  75 step  1000 | avg loss: 0.13076 | avg acc: 0.96100
+ epoch  75 step  1200 | avg loss: 0.12742 | avg acc: 0.96229
+= Epoch 75 | Tain Loss: 0.12851 Train Acc: 0.962 | Test Loss: 0.29918 Test Acc: 0.903 | Best Acc: 0.912
+
+ epoch  76 step   200 | avg loss: 0.12184 | avg acc: 0.96313
+ epoch  76 step   400 | avg loss: 0.12753 | avg acc: 0.96031
+ epoch  76 step   600 | avg loss: 0.12860 | avg acc: 0.95937
+ epoch  76 step   800 | avg loss: 0.12672 | avg acc: 0.95969
+ epoch  76 step  1000 | avg loss: 0.12691 | avg acc: 0.96050
+ epoch  76 step  1200 | avg loss: 0.12581 | avg acc: 0.96062
+= Epoch 76 | Tain Loss: 0.12444 Train Acc: 0.961 | Test Loss: 0.30060 Test Acc: 0.902 | Best Acc: 0.912
+
+ epoch  77 step   200 | avg loss: 0.13024 | avg acc: 0.96000
+ epoch  77 step   400 | avg loss: 0.12266 | avg acc: 0.96375
+ epoch  77 step   600 | avg loss: 0.12275 | avg acc: 0.96333
+ epoch  77 step   800 | avg loss: 0.11949 | avg acc: 0.96500
+ epoch  77 step  1000 | avg loss: 0.12283 | avg acc: 0.96325
+ epoch  77 step  1200 | avg loss: 0.12276 | avg acc: 0.96229
+= Epoch 77 | Tain Loss: 0.12267 Train Acc: 0.962 | Test Loss: 0.29893 Test Acc: 0.904 | Best Acc: 0.912
+
+ epoch  78 step   200 | avg loss: 0.13499 | avg acc: 0.96437
+ epoch  78 step   400 | avg loss: 0.13349 | avg acc: 0.96281
+ epoch  78 step   600 | avg loss: 0.13128 | avg acc: 0.96333
+ epoch  78 step   800 | avg loss: 0.13064 | avg acc: 0.96203
+ epoch  78 step  1000 | avg loss: 0.13023 | avg acc: 0.96300
+ epoch  78 step  1200 | avg loss: 0.13146 | avg acc: 0.96125
+= Epoch 78 | Tain Loss: 0.13167 Train Acc: 0.961 | Test Loss: 0.29907 Test Acc: 0.907 | Best Acc: 0.912
+
+ epoch  79 step   200 | avg loss: 0.12099 | avg acc: 0.96000
+ epoch  79 step   400 | avg loss: 0.12502 | avg acc: 0.95906
+ epoch  79 step   600 | avg loss: 0.12667 | avg acc: 0.95708
+ epoch  79 step   800 | avg loss: 0.12357 | avg acc: 0.96031
+ epoch  79 step  1000 | avg loss: 0.12401 | avg acc: 0.96075
+ epoch  79 step  1200 | avg loss: 0.12638 | avg acc: 0.96010
+= Epoch 79 | Tain Loss: 0.12624 Train Acc: 0.960 | Test Loss: 0.29101 Test Acc: 0.903 | Best Acc: 0.912
+
+ epoch  80 step   200 | avg loss: 0.11129 | avg acc: 0.96562
+ epoch  80 step   400 | avg loss: 0.11918 | avg acc: 0.96281
+ epoch  80 step   600 | avg loss: 0.12432 | avg acc: 0.96208
+ epoch  80 step   800 | avg loss: 0.12243 | avg acc: 0.96188
+ epoch  80 step  1000 | avg loss: 0.12431 | avg acc: 0.96100
+ epoch  80 step  1200 | avg loss: 0.12999 | avg acc: 0.95833
+= Epoch 80 | Tain Loss: 0.12933 Train Acc: 0.959 | Test Loss: 0.30761 Test Acc: 0.905 | Best Acc: 0.912
+
+ epoch  81 step   200 | avg loss: 0.12578 | avg acc: 0.96375
+ epoch  81 step   400 | avg loss: 0.12738 | avg acc: 0.96281
+ epoch  81 step   600 | avg loss: 0.12029 | avg acc: 0.96479
+ epoch  81 step   800 | avg loss: 0.12338 | avg acc: 0.96328
+ epoch  81 step  1000 | avg loss: 0.12490 | avg acc: 0.96288
+ epoch  81 step  1200 | avg loss: 0.12308 | avg acc: 0.96302
+= Epoch 81 | Tain Loss: 0.12358 Train Acc: 0.963 | Test Loss: 0.29449 Test Acc: 0.913 | Best Acc: 0.913
+
+ epoch  82 step   200 | avg loss: 0.11804 | avg acc: 0.96313
+ epoch  82 step   400 | avg loss: 0.12212 | avg acc: 0.95937
+ epoch  82 step   600 | avg loss: 0.11682 | avg acc: 0.96292
+ epoch  82 step   800 | avg loss: 0.12343 | avg acc: 0.96141
+ epoch  82 step  1000 | avg loss: 0.12150 | avg acc: 0.96225
+ epoch  82 step  1200 | avg loss: 0.12254 | avg acc: 0.96240
+= Epoch 82 | Tain Loss: 0.12277 Train Acc: 0.963 | Test Loss: 0.30074 Test Acc: 0.900 | Best Acc: 0.913
+
+ epoch  83 step   200 | avg loss: 0.13005 | avg acc: 0.95750
+ epoch  83 step   400 | avg loss: 0.12333 | avg acc: 0.95937
+ epoch  83 step   600 | avg loss: 0.12427 | avg acc: 0.95937
+ epoch  83 step   800 | avg loss: 0.12604 | avg acc: 0.95891
+ epoch  83 step  1000 | avg loss: 0.12525 | avg acc: 0.95937
+ epoch  83 step  1200 | avg loss: 0.12353 | avg acc: 0.96052
+= Epoch 83 | Tain Loss: 0.12262 Train Acc: 0.961 | Test Loss: 0.30767 Test Acc: 0.899 | Best Acc: 0.913
+
+ epoch  84 step   200 | avg loss: 0.10995 | avg acc: 0.97188
+ epoch  84 step   400 | avg loss: 0.12180 | avg acc: 0.96625
+ epoch  84 step   600 | avg loss: 0.12688 | avg acc: 0.96271
+ epoch  84 step   800 | avg loss: 0.12705 | avg acc: 0.96281
+ epoch  84 step  1000 | avg loss: 0.12357 | avg acc: 0.96425
+ epoch  84 step  1200 | avg loss: 0.12502 | avg acc: 0.96365
+= Epoch 84 | Tain Loss: 0.12596 Train Acc: 0.964 | Test Loss: 0.30417 Test Acc: 0.903 | Best Acc: 0.913
+
+ epoch  85 step   200 | avg loss: 0.13126 | avg acc: 0.96000
+ epoch  85 step   400 | avg loss: 0.12665 | avg acc: 0.96219
+ epoch  85 step   600 | avg loss: 0.12207 | avg acc: 0.96313
+ epoch  85 step   800 | avg loss: 0.12149 | avg acc: 0.96406
+ epoch  85 step  1000 | avg loss: 0.12041 | avg acc: 0.96475
+ epoch  85 step  1200 | avg loss: 0.12124 | avg acc: 0.96458
+= Epoch 85 | Tain Loss: 0.12057 Train Acc: 0.965 | Test Loss: 0.29335 Test Acc: 0.908 | Best Acc: 0.913
+
+ epoch  86 step   200 | avg loss: 0.13292 | avg acc: 0.95937
+ epoch  86 step   400 | avg loss: 0.12667 | avg acc: 0.96313
+ epoch  86 step   600 | avg loss: 0.12545 | avg acc: 0.96500
+ epoch  86 step   800 | avg loss: 0.12593 | avg acc: 0.96391
+ epoch  86 step  1000 | avg loss: 0.12446 | avg acc: 0.96450
+ epoch  86 step  1200 | avg loss: 0.12531 | avg acc: 0.96365
+= Epoch 86 | Tain Loss: 0.12628 Train Acc: 0.963 | Test Loss: 0.30468 Test Acc: 0.903 | Best Acc: 0.913
+
+ epoch  87 step   200 | avg loss: 0.11512 | avg acc: 0.96875
+ epoch  87 step   400 | avg loss: 0.12065 | avg acc: 0.96219
+ epoch  87 step   600 | avg loss: 0.12269 | avg acc: 0.96167
+ epoch  87 step   800 | avg loss: 0.12732 | avg acc: 0.96203
+ epoch  87 step  1000 | avg loss: 0.12408 | avg acc: 0.96313
+ epoch  87 step  1200 | avg loss: 0.12262 | avg acc: 0.96365
+= Epoch 87 | Tain Loss: 0.12352 Train Acc: 0.963 | Test Loss: 0.30009 Test Acc: 0.901 | Best Acc: 0.913
+
+ epoch  88 step   200 | avg loss: 0.13142 | avg acc: 0.96000
+ epoch  88 step   400 | avg loss: 0.13122 | avg acc: 0.96062
+ epoch  88 step   600 | avg loss: 0.13224 | avg acc: 0.95979
+ epoch  88 step   800 | avg loss: 0.12740 | avg acc: 0.96141
+ epoch  88 step  1000 | avg loss: 0.12586 | avg acc: 0.96137
+ epoch  88 step  1200 | avg loss: 0.12554 | avg acc: 0.96135
+= Epoch 88 | Tain Loss: 0.12550 Train Acc: 0.961 | Test Loss: 0.30692 Test Acc: 0.899 | Best Acc: 0.913
+
+ epoch  89 step   200 | avg loss: 0.13707 | avg acc: 0.95937
+ epoch  89 step   400 | avg loss: 0.13275 | avg acc: 0.96188
+ epoch  89 step   600 | avg loss: 0.12671 | avg acc: 0.96271
+ epoch  89 step   800 | avg loss: 0.12788 | avg acc: 0.96234
+ epoch  89 step  1000 | avg loss: 0.12695 | avg acc: 0.96313
+ epoch  89 step  1200 | avg loss: 0.12867 | avg acc: 0.96250
+= Epoch 89 | Tain Loss: 0.12795 Train Acc: 0.963 | Test Loss: 0.29748 Test Acc: 0.903 | Best Acc: 0.913
+
+ epoch  90 step   200 | avg loss: 0.12848 | avg acc: 0.96125
+ epoch  90 step   400 | avg loss: 0.12343 | avg acc: 0.96188
+ epoch  90 step   600 | avg loss: 0.12480 | avg acc: 0.96042
+ epoch  90 step   800 | avg loss: 0.12298 | avg acc: 0.96172
+ epoch  90 step  1000 | avg loss: 0.12217 | avg acc: 0.96188
+ epoch  90 step  1200 | avg loss: 0.12365 | avg acc: 0.96229
+= Epoch 90 | Tain Loss: 0.12358 Train Acc: 0.962 | Test Loss: 0.30535 Test Acc: 0.904 | Best Acc: 0.913
+
+ epoch  91 step   200 | avg loss: 0.11363 | avg acc: 0.96875
+ epoch  91 step   400 | avg loss: 0.11760 | avg acc: 0.96750
+ epoch  91 step   600 | avg loss: 0.12589 | avg acc: 0.96458
+ epoch  91 step   800 | avg loss: 0.12694 | avg acc: 0.96437
+ epoch  91 step  1000 | avg loss: 0.12638 | avg acc: 0.96375
+ epoch  91 step  1200 | avg loss: 0.12413 | avg acc: 0.96354
+= Epoch 91 | Tain Loss: 0.12496 Train Acc: 0.963 | Test Loss: 0.30256 Test Acc: 0.899 | Best Acc: 0.913
+
+ epoch  92 step   200 | avg loss: 0.12759 | avg acc: 0.95875
+ epoch  92 step   400 | avg loss: 0.12000 | avg acc: 0.96406
+ epoch  92 step   600 | avg loss: 0.12050 | avg acc: 0.96479
+ epoch  92 step   800 | avg loss: 0.12255 | avg acc: 0.96484
+ epoch  92 step  1000 | avg loss: 0.12302 | avg acc: 0.96488
+ epoch  92 step  1200 | avg loss: 0.12429 | avg acc: 0.96448
+= Epoch 92 | Tain Loss: 0.12447 Train Acc: 0.964 | Test Loss: 0.29486 Test Acc: 0.904 | Best Acc: 0.913
+
+ epoch  93 step   200 | avg loss: 0.13292 | avg acc: 0.95688
+ epoch  93 step   400 | avg loss: 0.12842 | avg acc: 0.95750
+ epoch  93 step   600 | avg loss: 0.12907 | avg acc: 0.95688
+ epoch  93 step   800 | avg loss: 0.12650 | avg acc: 0.95844
+ epoch  93 step  1000 | avg loss: 0.12456 | avg acc: 0.95950
+ epoch  93 step  1200 | avg loss: 0.12464 | avg acc: 0.95948
+= Epoch 93 | Tain Loss: 0.12385 Train Acc: 0.960 | Test Loss: 0.31056 Test Acc: 0.899 | Best Acc: 0.913
+
+ epoch  94 step   200 | avg loss: 0.12310 | avg acc: 0.96625
+ epoch  94 step   400 | avg loss: 0.12806 | avg acc: 0.96281
+ epoch  94 step   600 | avg loss: 0.12621 | avg acc: 0.96354
+ epoch  94 step   800 | avg loss: 0.12355 | avg acc: 0.96437
+ epoch  94 step  1000 | avg loss: 0.12581 | avg acc: 0.96375
+ epoch  94 step  1200 | avg loss: 0.12324 | avg acc: 0.96406
+= Epoch 94 | Tain Loss: 0.12431 Train Acc: 0.964 | Test Loss: 0.29226 Test Acc: 0.906 | Best Acc: 0.913
+
+ epoch  95 step   200 | avg loss: 0.13342 | avg acc: 0.95937
+ epoch  95 step   400 | avg loss: 0.13403 | avg acc: 0.95844
+ epoch  95 step   600 | avg loss: 0.13484 | avg acc: 0.95729
+ epoch  95 step   800 | avg loss: 0.13318 | avg acc: 0.95875
+ epoch  95 step  1000 | avg loss: 0.12963 | avg acc: 0.96075
+ epoch  95 step  1200 | avg loss: 0.12833 | avg acc: 0.96115
+= Epoch 95 | Tain Loss: 0.12861 Train Acc: 0.961 | Test Loss: 0.29846 Test Acc: 0.904 | Best Acc: 0.913
+
+ epoch  96 step   200 | avg loss: 0.14039 | avg acc: 0.95750
+ epoch  96 step   400 | avg loss: 0.13724 | avg acc: 0.95656
+ epoch  96 step   600 | avg loss: 0.13420 | avg acc: 0.95813
+ epoch  96 step   800 | avg loss: 0.12928 | avg acc: 0.95922
+ epoch  96 step  1000 | avg loss: 0.12442 | avg acc: 0.96113
+ epoch  96 step  1200 | avg loss: 0.12443 | avg acc: 0.96104
+= Epoch 96 | Tain Loss: 0.12463 Train Acc: 0.961 | Test Loss: 0.29915 Test Acc: 0.906 | Best Acc: 0.913
+
+ epoch  97 step   200 | avg loss: 0.11712 | avg acc: 0.96375
+ epoch  97 step   400 | avg loss: 0.11707 | avg acc: 0.96625
+ epoch  97 step   600 | avg loss: 0.11861 | avg acc: 0.96500
+ epoch  97 step   800 | avg loss: 0.12284 | avg acc: 0.96313
+ epoch  97 step  1000 | avg loss: 0.12223 | avg acc: 0.96313
+ epoch  97 step  1200 | avg loss: 0.12190 | avg acc: 0.96281
+= Epoch 97 | Tain Loss: 0.12206 Train Acc: 0.963 | Test Loss: 0.31188 Test Acc: 0.902 | Best Acc: 0.913
+
+ epoch  98 step   200 | avg loss: 0.12355 | avg acc: 0.95937
+ epoch  98 step   400 | avg loss: 0.11876 | avg acc: 0.96094
+ epoch  98 step   600 | avg loss: 0.12107 | avg acc: 0.96083
+ epoch  98 step   800 | avg loss: 0.11988 | avg acc: 0.96250
+ epoch  98 step  1000 | avg loss: 0.12232 | avg acc: 0.96250
+ epoch  98 step  1200 | avg loss: 0.12056 | avg acc: 0.96365
+= Epoch 98 | Tain Loss: 0.12268 Train Acc: 0.963 | Test Loss: 0.29776 Test Acc: 0.901 | Best Acc: 0.913
+
+ epoch  99 step   200 | avg loss: 0.12554 | avg acc: 0.95688
+ epoch  99 step   400 | avg loss: 0.12457 | avg acc: 0.96000
+ epoch  99 step   600 | avg loss: 0.11846 | avg acc: 0.96417
+ epoch  99 step   800 | avg loss: 0.12294 | avg acc: 0.96391
+ epoch  99 step  1000 | avg loss: 0.12808 | avg acc: 0.96225
+ epoch  99 step  1200 | avg loss: 0.12722 | avg acc: 0.96260
+= Epoch 99 | Tain Loss: 0.12606 Train Acc: 0.963 | Test Loss: 0.30000 Test Acc: 0.906 | Best Acc: 0.913
+
+ epoch 100 step   200 | avg loss: 0.10982 | avg acc: 0.96937
+ epoch 100 step   400 | avg loss: 0.12388 | avg acc: 0.96250
+ epoch 100 step   600 | avg loss: 0.11929 | avg acc: 0.96458
+ epoch 100 step   800 | avg loss: 0.12081 | avg acc: 0.96344
+ epoch 100 step  1000 | avg loss: 0.12084 | avg acc: 0.96375
+ epoch 100 step  1200 | avg loss: 0.12303 | avg acc: 0.96208
+= Epoch 100 | Tain Loss: 0.12345 Train Acc: 0.962 | Test Loss: 0.31111 Test Acc: 0.905 | Best Acc: 0.913
+
+* Best result at 81 epoch with test acc 0.913290113452188
