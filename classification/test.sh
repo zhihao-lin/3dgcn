@@ -6,8 +6,8 @@ python3 main.py \
 -load ../../model_weight/cls/0306_test.pkl \
 -support_num 1 \
 -neighbor_num 20 \
--shift 0.0 \
--scale 1.0 \
--rotate 1 \
-#-normal \
--random \
+# -normal \
+# -random \
+# -rotate 180 \
+#-scale 2 \
+#-shift 10.0 \

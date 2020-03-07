@@ -28,14 +28,13 @@ def main():
     parser.set_defaults(normal= False)
     parser.add_argument('-shift', type= float, default= None)
     parser.add_argument('-scale', type= float, default= None)
-    parser.add_argument('-rotate', type= float, default= None)
+    parser.add_argument('-rotate', help="in degree", type= float, default= None)
     parser.add_argument('-axis', help= 'Rotation axis, select from [0, 1, 2]', type= int, default= 2) # upward axis = 2
     parser.add_argument('-random', help= 'Random transform in a given range', dest= 'random', action= 'store_true')
     parser.set_defaults(random= False)
     args = parser.parse_args()
 
-    # model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
-    model = PointNetCls(40)
+    model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
     manager = Manager(model, args)
 
     transform = Transform(
