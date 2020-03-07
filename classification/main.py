@@ -3,6 +3,7 @@ import torch
 from torch.utils.data import DataLoader
 from model_gcn3d import GCN3D
 from model_dgcnn import DGCNN
+from model_pointnet import PointNetCls
 from dataset_modelnet import ModelNet_pointcloud
 from manager import Manager
 import sys
@@ -33,7 +34,8 @@ def main():
     parser.set_defaults(random= False)
     args = parser.parse_args()
 
-    model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
+    # model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
+    model = PointNetCls(40)
     manager = Manager(model, args)
 
     transform = Transform(

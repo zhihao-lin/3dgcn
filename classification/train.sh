@@ -8,4 +8,5 @@ python3 main.py \
 -record 0306_test.txt \
 -support_num 1 \
 -neighbor_num 20 \
+# -normal
     
