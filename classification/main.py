@@ -20,7 +20,7 @@ def main():
     parser.add_argument('-dataset', help= "path to modelnet point cloud data")
     parser.add_argument('-load', default= None)
     parser.add_argument('-save', default= None)
-    parser.add_argument('-record', help= 'Record file name (e.g. record.txt)', default= None)
+    parser.add_argument('-record', help= 'Record file name (e.g. record.log)', default= None)
     parser.add_argument('-interval', type= int, help= 'Record interval within an epoch', default= 200)
     parser.add_argument('-support_num', type= int, default= 1)
     parser.add_argument('-neighbor_num', type= int, default= 20)

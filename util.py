@@ -17,9 +17,10 @@ def normal2unit(vertices: "(vertice_num, 3)"):
     vertices /= distance.max()
     return vertices
 
-def rotate(points, theta: float, axis: int):
+def rotate(points, degree: float, axis: int):
     """Rotate along upward direction"""
     rotate_matrix = torch.eye(3)
+    theta = (degree/360)*2*np.pi
     cos = np.cos(theta)
     sin = np.sin(theta)
     
@@ -57,20 +58,18 @@ class Transform():
         if self.shift:
             shift = self.shift
             if self.random:
-                shift = (torch.rand(3) - 0.5) * self.shift
+                shift = (torch.rand(3)*2 - 1) * self.shift
             points += shift
         
         if self.scale:
             scale = self.scale
-            if self.random:
-                scale = torch.rand(1).item() * self.scale
             points *= scale
         
         if self.rotate:
-            theta = self.rotate
+            degree = self.rotate
             if self.random: 
-                theta = (torch.rand(1).item() - 0.5) * self.rotate
-            points = rotate(points, theta, self.axis)
+                degree = (torch.rand(1).item()*2 - 1) * self.rotate
+            points = rotate(points, degree, self.axis)
 
         return points
 
