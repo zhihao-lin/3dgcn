@@ -10,10 +10,10 @@ class Manager():
     def __init__(self, model, args):
         self.args_info = args.__str__()
         self.device = torch.device('cuda:{}'.format(args.cuda) if torch.cuda.is_available() else 'cpu')
-        self.epoch = args.epoch
         if args.load:
             model.load_state_dict(torch.load(args.load))
         self.model = model.to(self.device)
+        self.epoch = args.epoch
         self.optimizer = optim.Adam(self.model.parameters(), lr= args.lr)
         self.lr_scheduler = optim.lr_scheduler.StepLR(self.optimizer, step_size= 10, gamma= 0.5)
         self.loss_function = nn.CrossEntropyLoss()
@@ -23,7 +23,7 @@ class Manager():
         self.record_file = None
         if args.record:
             self.record_file = open(args.record, 'w')
-        self.best = { "epoch": 0, "acc": 0}
+        self.best = {"epoch": 0, "acc": 0}
 
     def record(self, info):
         print(info)
@@ -31,10 +31,11 @@ class Manager():
             self.record_file.write(info + '\n')
         
     def train(self, train_data, test_data):
-        self.record("Paraneters: {}".format(self.args_info))
+        self.record("*****************************************")
+        self.record("Hyper-parameters: {}".format(self.args_info))
         self.record("Model parameter number: {}".format(parameter_number(self.model)))
         self.record("Model structure:\n{}".format(self.model.__str__()))
-        self.record("---------------- Training records ----------------")
+        self.record("*****************************************")
 
         for epoch in range(self.epoch):
             self.model.train()

@@ -34,21 +34,6 @@ def rotate(points, theta: float, axis: int):
     points = points @ rotate_matrix
     return points
 
-def get_miou(pred: "tensor (point_num, )", target: "tensor (point_num, )", valid_labels: list):
-    pred, target = pred.cpu().numpy(), target.cpu().numpy()
-    part_ious = []
-    for part_id in valid_labels:
-        pred_part = (pred == part_id)
-        target_part = (target == part_id)
-        I = np.sum(np.logical_and(pred_part, target_part))
-        U = np.sum(np.logical_or( pred_part, target_part))
-        if U == 0:
-            part_ious.append(1)
-        else:
-            part_ious.append(I/U)
-    miou = np.mean(part_ious)
-    return miou
-
 class Transform():
     def __init__(self, 
                 normal: bool, 
@@ -94,15 +79,6 @@ def test():
     transform = Transform(normal= True, scale= 10.0, axis= 1, random= True)
     points = transform(points)
     print(points.size())
-
-def test2():
-    from sklearn.metrics import jaccard_score
-    a = torch.LongTensor(np.random.choice(10, 100))
-    b = torch.LongTensor(np.random.choice(10, 100))
-    miou_1 = get_miou(a, b, [i for i in range(10)])
-    miou_2 = jaccard_score(a, b, average= "macro")
-    print(miou_1)
-    print(miou_2)
 
 if __name__ == '__main__':
     test()
