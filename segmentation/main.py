@@ -5,7 +5,6 @@ import argparse
 import torch
 from torch.utils.data import DataLoader
 from model_gcn3d import GCN3D
-from model_dgcnn import DGCNN
 from dataset_shapenet import ShapeNetPart
 from manager import Manager
 
