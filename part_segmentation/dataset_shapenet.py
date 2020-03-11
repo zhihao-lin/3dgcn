@@ -1,10 +1,13 @@
 import sys
 sys.path.append("../")
+from util import parameter_number
 import os
 import json
 import numpy as np
 import torch
+import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
+import time 
 
 # Object number in dataset:
 # catgory    | train | valid | test 
@@ -121,9 +124,34 @@ class ShapeNetPart(Dataset):
         
         return category, obj_id, points, labels, mask, onehot
 
+def test_model(model, dataset, cuda= "0", bs= 1, point_num= 1024):
+    device = torch.device("cuda:{}".format(cuda))
+    shapenet = ShapeNetPart(dataset, split= "train", point_num= point_num)
+    dataloader = DataLoader(shapenet, batch_size= bs, shuffle= True)
+    loss_func = nn.CrossEntropyLoss()
+    model = model.to(device)
+    
+    print("Model parameter #: {}".format(parameter_number(model)))
+    for i, (cat_name, obj_id, points, labels, mask, onehot) in enumerate(dataloader):
+        print("points size: {}".format(points.size()))
+        print("labels size: {}".format(labels.size()))
+        print("-----------------------")
+        points = points.to(device)
+        labels = labels.to(device)
+        onehot = onehot.to(device)
+        start = time.time()
+        out = model(points, onehot)
+        print("Finish inference, time: {}".format(time.time() - start))
+        loss = loss_func(out.reshape(-1, out.size(-1)), labels.view(-1, ))
+        start = time.time()
+        loss.backward()
+        print("Finish back-prop, time: {}".format(time.time() - start))
+        break
+
 def test():
-    root = "/mnt/HDD_1/j1a0m0e4s/shapenetcore_partanno_segmentation_benchmark_v0"
-    part_data = ShapeNetPart(root, split= 'train', point_num= 2048)
+    root = "../../shapenetcore_partanno_segmentation_benchmark_v0"
+    part_data = ShapeNetPart(root, split= 'test', point_num= 2048)
+    print(len(part_data))
     dataloader = DataLoader(part_data, batch_size= 4, shuffle= True)
     for i, (cat_name, _, points, labels, mask, cat_one_hot) in enumerate(dataloader):
         print("cat name: {:10} | points size: {} | labels size: {} | mask: {} | cat one hot: {}".format(cat_name[0], points.size(), labels.size(), mask.size(), cat_one_hot.size()))

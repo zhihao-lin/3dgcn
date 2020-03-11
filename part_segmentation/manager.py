@@ -54,15 +54,39 @@ class Manager():
         if self.record_file:
             self.record_file.write(info + '\n')
 
-    def summarize(self):
+    def calculate_save_mious(self, iou_table, category_names, labels, predictions):
+        for i in range(len(category_names)):
+            category = category_names[i]
+            pred = predictions[i]
+            label =  labels[i]
+            valid_labels = get_valid_labels(category)
+            miou = get_miou(pred, label, valid_labels)
+            iou_table.add_obj_miou(category, miou)
+
+    def save_visualizations(self, dir, category_names, object_ids, points, labels, predictions):
+        for i in range(len(category_names)):
+            cat = category_names[i]
+            valid_labels = get_valid_labels(cat)
+            shift = min(valid_labels) * (-1)
+            obj_id = object_ids[i]
+            point = points[i].to("cpu") 
+            label = labels[i].to("cpu") + shift
+            pred  = predictions[i].to("cpu") + shift
+
+            cat_dir = os.path.join(dir, cat)
+            if not os.path.isdir(cat_dir):
+                os.mkdir(cat_dir)
+            gt_fig_name = os.path.join(cat_dir, "{}_gt.png".format(obj_id))        
+            pred_fig_name = os.path.join(cat_dir, "{}_pred.png".format(obj_id)) 
+            visualize(point, label, gt_fig_name)
+            visualize(point, pred, pred_fig_name)
+
+    def train(self, train_data, test_data):
         self.record("*****************************************")
         self.record("Hyper-parameters: {}".format(self.args_info))
         self.record("Model parameter number: {}".format(parameter_number(self.model)))
         self.record("Model structure: \n{}".format(self.model.__str__()))
         self.record("*****************************************")
-
-    def train(self, train_data, test_data):
-        self.summarize()
 
         for epoch in range(self.epoch):
             self.model.train()
@@ -82,12 +106,7 @@ class Manager():
                 
                 out[mask == 0] = out.min()
                 pred = torch.max(out, 2)[1]
-
-                for b in range(points.size(0)):
-                    cat = cat_name[b]
-                    valid_label = get_valid_labels(cat)
-                    miou = get_miou(pred[b], labels[b], valid_label)
-                    train_iou_table.add_obj_miou(cat, miou) 
+                self.calculate_save_mious(train_iou_table, cat_name, labels, pred)
 
                 if self.record_interval and ((i + 1) % self.record_interval == 0):
                     c_miou = train_iou_table.get_mean_category_miou()
@@ -101,15 +120,18 @@ class Manager():
             if self.save:
                 torch.save(self.model.state_dict(), self.save)
 
-            self.record("==== Epoch {:3} ==== *".format(epoch + 1))
+            self.record("==== Epoch {:3} ====".format(epoch + 1))
             self.record("Training mIoU:")
             self.record(train_table_str)
             self.record("Testing mIoU:")
             self.record(test_table_str)
+            self.record("* Best mIoU(c): {:.3f}, Best mIoU (i): {:.3f} \n".format(self.best["c_miou"], self.best["i_miou"]))
 
     def test(self, test_data, out_dir= None):
-        if out_dir and not os.path.isdir(out_dir):
-            os.mkdir(out_dir)
+        if out_dir: 
+            if not os.path.isdir(out_dir):
+                os.mkdir(out_dir)
+
         self.model.eval()
         test_loss = 0
         test_iou_table = IouTable()
@@ -124,25 +146,10 @@ class Manager():
 
             out[mask == 0] = out.min()
             pred = torch.max(out, 2)[1]
+            self.calculate_save_mious(test_iou_table, cat_name, labels, pred)
+            if out_dir:
+                self.save_visualizations(out_dir, cat_name, obj_ids, points, labels, pred)
 
-            for b in range(points.size(0)):
-                cat, obj_id, point, pred, label = cat_name[b], obj_ids[b], points[b].to("cpu"), pred[b].to("cpu"), labels[b].to("cpu")
-                valid_label = get_valid_labels(cat)
-                miou = get_miou(pred[b], labels[b], valid_label)
-                test_iou_table.add_obj_miou(cat, miou)
-
-                if out_dir:
-                    shift = min(valid_label) * (-1)
-                    pred += shift
-                    label += shift
-                    cat_dir = os.path.join(out_dir, cat)
-                    if not os.path.isdir(cat_dir):
-                        os.mkdir(cat_dir)
-                    gt_fig_name = os.path.join(cat_dir, "{}_gt.png".format(obj_id))        
-                    pred_fig_name = os.path.join(cat_dir, "{}_pred.png".format(obj_id)) 
-                    visualize(point, label, gt_fig_name)
-                    visualize(point, pred, pred_fig_name)
-                    
         test_loss /= (i+1) 
         c_miou = test_iou_table.get_mean_category_miou()
         i_miou = test_iou_table.get_mean_instance_miou()
@@ -188,22 +195,20 @@ class IouTable():
         return np.mean(object_miou)
 
     def get_string(self):
+        mean_c_miou = self.get_mean_category_miou()
+        mean_i_miou = self.get_mean_instance_miou()
+        first_row  = "| {:5} | {:5} ||".format("Avg_c", "Avg_i")
+        second_row = "| {:.3f} | {:.3f} ||".format(mean_c_miou, mean_i_miou)
+        
         categories = list(self.obj_miou.keys())
         categories.sort()
         cate_miou = self.get_category_miou()
 
-        first_row = "| Object"
-        second_row ="| mIoU  "
         for c in categories:
             miou = cate_miou[c]
-            first_row  += " | {:5}".format(c[:3])
-            second_row += " | {:.3f}".format(miou)
+            first_row  += " {:5} |".format(c[:3])
+            second_row += " {:.3f} |".format(miou)
         
-        mean_c_miou = self.get_mean_category_miou()
-        mean_i_miou = self.get_mean_instance_miou()
-        first_row  += " || {:5} | {:5}".format("Avg_c", "Avg_i")
-        second_row += " || {:.3f} | {:.3f}".format(mean_c_miou, mean_i_miou)
-
         string = first_row + "\n" + second_row
         return string 
 

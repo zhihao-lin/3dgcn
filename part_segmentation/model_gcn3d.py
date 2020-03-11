@@ -65,10 +65,10 @@ class GCN3D(nn.Module):
         return pred
 
 def test():
-    from test import test_model
-    dataset = "/mnt/HDD_1/j1a0m0e4s/shapenetcore_partanno_segmentation_benchmark_v0"
+    from dataset_shapenet import test_model
+    dataset = "../../shapenetcore_partanno_segmentation_benchmark_v0"
     model = GCN3D(class_num= 50, support_num= 1, neighbor_num= 50)
-    test_model(model, dataset, cuda= "0", bs= 4, point_num= 2048)
+    test_model(model, dataset, cuda= "0", bs= 2, point_num= 2048)
 
 if __name__ == "__main__":
     test()

@@ -42,6 +42,7 @@ def main():
         shift= args.shift,
         scale= args.scale,
         rotate= args.rotate,
+        axis= args.axis,
         random= args.random
     )
 
