@@ -10,6 +10,7 @@ Point clouds are among the popular geometry representations for 3D vision applic
 ```
 Linux Ubuntu 18.04
 Python 3.6.9
+PyTorch 1.2.0
 ```
 
 ## Installation
@@ -26,7 +27,11 @@ Please install with the command if necessary:
 pip3 install -r requirements.txt
 ```
 
-## Sahpe Classification
+## 3D Graph Convolutional Network (3D-GCN)
+Our algorithm is implemented in `gcn3d.py`, including convolutional and pooling layers. These modules are used as basic blocks for all network structures in different tasks. Please refer to `model_gcn3d.py` under each folder to understand the usage.
+
+## Shape Classification
+3D-GCN is able to perform shape classification on point cloud objects. Please refer to `classification/README` for more training and testing details.
 
 ## Shape Part-segmentation
-
+3D-GCN is able to perform part-segmentation on point cloud objects. Please refer to `segmentation/README` for more training ann testing details.
