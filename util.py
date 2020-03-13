@@ -1,8 +1,5 @@
 import numpy as np
 import torch
-import matplotlib 
-matplotlib.use('Agg')
-from matplotlib import pyplot as plt 
 
 def parameter_number(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
