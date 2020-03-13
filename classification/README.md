@@ -1,6 +1,6 @@
 # Classification on ModelNet
 
-<img src="../imgs/cls.png" alt="classification model" width="500" />
+<img src="../imgs/model_cls.png" alt="classification model" width="500" />
 
 -random
            original | shift  1 | shift  5 | shift 10 | scale 0.5 | scale  2 | rotate 30 | rotate 45 | rotate 90 | rotate 180

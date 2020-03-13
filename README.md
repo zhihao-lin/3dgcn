@@ -31,7 +31,13 @@ pip3 install -r requirements.txt
 Our algorithm is implemented in `gcn3d.py`, including convolutional and pooling layers. These modules are used as basic blocks for all network structures in different tasks. Please refer to `model_gcn3d.py` under each folder to understand the usage.
 
 ## Shape Classification
+
+<img src="imgs/fig_cls.PNG" alt="" width="400"/>
+
 3D-GCN is able to perform shape classification on point cloud objects. Please refer to `classification/README` for more training and testing details.
 
 ## Shape Part-segmentation
+
+<img src="imgs/fig_seg.PNG" alt="" width="400"/>
+
 3D-GCN is able to perform part-segmentation on point cloud objects. Please refer to `segmentation/README` for more training ann testing details.
