@@ -40,4 +40,4 @@ Our algorithm is implemented in `gcn3d.py`, including convolutional and pooling 
 
 <img src="imgs/fig_seg.PNG" alt="" width="400"/>
 
-3D-GCN is able to perform part-segmentation on point cloud objects. Please refer to `segmentation/README` for more training ann testing details.
+3D-GCN is able to perform part-segmentation on point cloud objects. Please refer to `segmentation/README` for more training and testing details.

@@ -44,11 +44,11 @@ Test Acc:  *****
 * Experiments on other model ([PointNet](https://arxiv.org/abs/1612.00593)/[DGCNN](https://arxiv.org/abs/1801.07829)) can be run by edit `-model` argument, note that for such model, `-normal` should be added.
 * When testing, object transformation can be added by editing `-shift`, `-scale`, `-rotate`, `-random`. Compared with pervious works, 3D-GCN is **shift- and scale-invariant** and less sensitive to rotation, which is much more robust.
 
-## Files
+## Acknowledgement
 Model structure of 3D-GCN is defined in `model_gcn3d.py`. Some other models are also provided. We thanks the related opensource projects:
 
 * [PointNet](https://github.com/charlesq34/pointnet) (TensorFlow, author's implementation.)
 * [PointNet](https://github.com/fxia22/pointnet.pytorch) (PyTorch implementaion, used in `model_pointcloud.py`.)
-* [DGCNN](https://github.com/WangYueFt/dgcnn) (used in `model_dgcnn.py`)
+* [DGCNN](https://github.com/WangYueFt/dgcnn) (used in `model_dgcnn.py`.)
 
 

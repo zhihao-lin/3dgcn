@@ -1,14 +1,12 @@
 python3 main.py \
 -mode train \
--save ../../model_weight/part_seg/0310_test.pkl \
+-save model.pkl \
 -cuda 0 \
--epoch 20 \
--bs 1 \
--dataset ../../shapenetcore_partanno_segmentation_benchmark_v0 \
+-epoch 100 \
+-bs 4 \
+-dataset dataset_path \
 -point_num 1024 \
--record 0310_test.log \
+-record record.log \
 -interval 1000 \
 -support_num 1 \
 -neighbor_num 50 \
--output ../../seg_result/0310_test \
-# -normal 
