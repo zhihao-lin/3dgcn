@@ -67,8 +67,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-source', help= "path to ModelNet dataset(e.g. ModelNet40/)", default= None)
     parser.add_argument('-target', help= "path to folder of output points(e.g. ModelNet40_1024_points/)", default= None)
-    parser.add_argument('-point_num', type= int, default= 2048)
-    parser.add_argument('-normalize', help= "Normalize all objects into unit sphere", type= bool, default= False)
+    parser.add_argument('-point_num', type= int, default= 1024)
+    parser.add_argument('-normal', dest= 'normal', action= 'store_true')
+    parser.set_defaults(normal= False)
     args = parser.parse_args()
     
     source_dir = args.source
@@ -87,7 +88,7 @@ def main():
             mesh_names = [os.path.join(source_folder, name) for name in os.listdir(source_folder) if name != '.DS_Store']
             for name in mesh_names:
                 vertices, faces = get_vertices_faces_from_off_file(name)
-                pointcloud = mesh2pointcloud(vertices, faces, args.point_num, normalize= args.normalize)
+                pointcloud = mesh2pointcloud(vertices, faces, args.point_num, normalize= args.normal)
                 # save model 
                 model = pd.DataFrame()
                 model['x'] = pointcloud[:, 0]

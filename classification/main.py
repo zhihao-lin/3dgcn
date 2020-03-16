@@ -12,29 +12,35 @@ from util import Transform
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-mode', help= 'train/test', default= 'train')
-    parser.add_argument('-cuda', help= 'Cuda index', default= '0')
-    parser.add_argument('-epoch', type= int, default= 100)
-    parser.add_argument('-lr', help= 'Learning Rate', type= float, default= 1e-4)
-    parser.add_argument('-bs', help= 'Batch size', type= int, default= 1)
-    parser.add_argument('-dataset', help= "path to modelnet point cloud data")
-    parser.add_argument('-load', default= None)
-    parser.add_argument('-save', default= None)
-    parser.add_argument('-record', help= 'Record file name (e.g. record.log)', default= None)
-    parser.add_argument('-interval', type= int, help= 'Record interval within an epoch', default= 200)
-    parser.add_argument('-support_num', type= int, default= 1)
-    parser.add_argument('-neighbor_num', type= int, default= 20)
-    parser.add_argument('-normal', dest= 'normal', action= 'store_true')
+    parser.add_argument('-mode', default= 'train', help= '[train/test]')
+    parser.add_argument('-model', default= 'gcn3d', help= '[pointnet/dgcnn/gcn3d]')
+    parser.add_argument('-cuda', default= '0', help= 'Cuda index')
+    parser.add_argument('-epoch', type= int, default= 100, help= 'Epoch number')
+    parser.add_argument('-lr', type= float, default= 1e-4, help= 'Learning rate')
+    parser.add_argument('-bs', type= int, default= 1, help= 'Batch size')
+    parser.add_argument('-dataset', help= "Path to modelnet point cloud data")
+    parser.add_argument('-load', help= 'Path to load model')
+    parser.add_argument('-save', help= 'Path to save model')
+    parser.add_argument('-record', help= 'Record file name (e.g. record.log)')
+    parser.add_argument('-interval', type= int, default= 200, help= 'Record interval within an epoch')
+    parser.add_argument('-support', type= int, default= 1, help= 'Support number')
+    parser.add_argument('-neighbor', type= int, default= 20, help= 'Neighbor number')
+    parser.add_argument('-normal', dest= 'normal', action= 'store_true', help= 'Normalize objects (zero-mean, unit size)')
     parser.set_defaults(normal= False)
-    parser.add_argument('-shift', type= float, default= None)
-    parser.add_argument('-scale', type= float, default= None)
-    parser.add_argument('-rotate', help="in degree", type= float, default= None)
-    parser.add_argument('-axis', help= 'Rotation axis, select from [0, 1, 2]', type= int, default= 2) # upward axis = 2
-    parser.add_argument('-random', help= 'Random transform in a given range', dest= 'random', action= 'store_true')
+    parser.add_argument('-shift', type= float, help= 'Shift objects (original: 0.0)')
+    parser.add_argument('-scale', type= float, help= 'Enlarge/shrink objects (original: 1.0)')
+    parser.add_argument('-rotate', type= float, help= 'Rotate objects in degree (original: 0.0)')
+    parser.add_argument('-axis', type= int, default= 2, help= 'Rotation axis [0, 1, 2] (upward = 2)')
+    parser.add_argument('-random', dest= 'random', action= 'store_true', help= 'Randomly transform in a given range')
     parser.set_defaults(random= False)
     args = parser.parse_args()
 
     model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
+    if args.model == 'pointnet':
+        model = PointNetCls(40)
+    elif args.model == 'dgcnn':
+        model = DGCNN()
+
     manager = Manager(model, args)
 
     transform = Transform(
