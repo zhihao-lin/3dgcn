@@ -1,8 +1,8 @@
 """
-@Author: Chih-Hao Lin
+@Author: Zhi-Hao Lin
 @Contact: r08942062@ntu.edu.tw
-@Time: 
-@Document: 
+@Time: 2020/03/06
+@Document: Basic operation/blocks of 3D-GCN
 """
 
 import math

@@ -2,7 +2,7 @@ python3 main.py \
 -mode test \
 -cuda 1 \
 -bs 8 \
--dataset dataset_path \
+-dataset path \
 -support 1 \
 -neighbor 20 \
 -load model.pkl \

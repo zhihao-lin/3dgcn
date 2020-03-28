@@ -34,7 +34,7 @@ def main():
     parser.set_defaults(random= False)
     args = parser.parse_args()
 
-    model = GCN3D(class_num= 50, support_num= args.support_num, neighbor_num= args.neighbor_num)
+    model = GCN3D(class_num= 50, support_num= args.support, neighbor_num= args.neighbor)
     manager = Manager(model, args)
 
     transform = Transform(
@@ -48,16 +48,16 @@ def main():
 
     if args.mode == "train":
         print("Training ...")
-        train_data = ShapeNetPart(args.dataset, split= 'train', point_num= args.point_num, transform= transform)
+        train_data = ShapeNetPart(args.dataset, split= 'train', point_num= args.point, transform= transform)
         train_loader = DataLoader(train_data, shuffle= True, batch_size= args.bs)
-        test_data = ShapeNetPart(args.dataset, split= 'test', point_num= args.point_num, transform= transform)
+        test_data = ShapeNetPart(args.dataset, split= 'test', point_num= args.point, transform= transform)
         test_loader = DataLoader(test_data, shuffle= False, batch_size= args.bs)
 
         manager.train(train_loader, test_loader)
 
     elif args.mode == "test":
         print("Testing ...")
-        test_data = ShapeNetPart(args.dataset, split= 'test', point_num= args.point_num, transform= transform)
+        test_data = ShapeNetPart(args.dataset, split= 'test', point_num= args.point, transform= transform)
         test_loader = DataLoader(test_data, shuffle= False, batch_size= args.bs)
 
         test_loss, test_table_str = manager.test(test_loader, args.output)

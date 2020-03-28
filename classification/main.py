@@ -35,7 +35,7 @@ def main():
     parser.set_defaults(random= False)
     args = parser.parse_args()
 
-    model = GCN3D(support_num= args.support_num, neighbor_num= args.neighbor_num)
+    model = GCN3D(support_num= args.support, neighbor_num= args.neighbor)
     if args.model == 'pointnet':
         model = PointNetCls(40)
     elif args.model == 'dgcnn':

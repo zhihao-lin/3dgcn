@@ -22,7 +22,7 @@ pandas
 matplotlib
 pyntcloud
 ```
-Please install with the command if necessary: 
+Please install packages with the command if necessary: 
 ```
 pip3 install -r requirements.txt
 ```

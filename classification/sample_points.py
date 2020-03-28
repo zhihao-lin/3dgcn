@@ -67,8 +67,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('-source', help= "path to ModelNet dataset(e.g. ModelNet40/)", default= None)
     parser.add_argument('-target', help= "path to folder of output points(e.g. ModelNet40_1024_points/)", default= None)
-    parser.add_argument('-point_num', type= int, default= 1024)
-    parser.add_argument('-normal', dest= 'normal', action= 'store_true')
+    parser.add_argument('-point_num', type= int, default= 1024, help= "How many points are sampled from each mesh object")
+    parser.add_argument('-normal', dest= 'normal', action= 'store_true', help= "Normalize point clouds while sampling")
     parser.set_defaults(normal= False)
     args = parser.parse_args()
     

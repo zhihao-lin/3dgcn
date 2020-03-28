@@ -1,12 +1,12 @@
 python3 main.py \
 -mode test \
+-support 1 \
+-neighbor 50 \
 -load model.pkl \
 -cuda 0 \
 -bs 4 \
--dataset dataset_path \
--point_num 1024 \
--support_num 1 \
--neighbor_num 50 \
+-dataset shapenetcore_partanno_segmentation_benchmark_v0 \
+-point 1024 \
 -output out_imgs/ \
 #-random \
 #-rotate 0 \
