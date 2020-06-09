@@ -1,6 +1,8 @@
 # Convolution in the Cloud: Learning Deformable Kernels in 3D Graph Convolution Networks for Point Cloud Analysis
 created by Zhi-Hao Lin, Sheng-Yu Huang, Yu-Chiang Frank Wang from National Taiwan University, Taiwan.
 
+This repository is based on our work at **IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2020**, and paper is provided here: [[paper]](http://openaccess.thecvf.com/content_CVPR_2020/papers/Lin_Convolution_in_the_Cloud_Learning_Deformable_Kernels_in_3D_Graph_CVPR_2020_paper.pdf)
+
 <img src="imgs/teaser.png" alt="teaser" width="500" />
 
 ## Introduction
