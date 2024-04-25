@@ -103,8 +103,9 @@ class Manager():
                 loss.backward()
                 self.optimizer.step()
                 train_loss += loss.item()
-                
-                out[mask == 0] = out.min()
+
+                mask = mask.to(self.device)
+                out = torch.where(mask == 0, out.min(), out)
                 pred = torch.max(out, 2)[1]
                 self.calculate_save_mious(train_iou_table, cat_name, labels, pred)
 
@@ -136,19 +137,21 @@ class Manager():
         test_loss = 0
         test_iou_table = IouTable()
 
-        for i, (cat_name, obj_ids, points, labels, mask, onehot) in enumerate(test_data):
-            points = points.to(self.device)
-            labels = labels.to(self.device)
-            onehot = onehot.to(self.device)
-            out = self.model(points, onehot)
-            loss = self.loss_function(out.reshape(-1, out.size(-1)), labels.view(-1,))     
-            test_loss += loss.item()
+        with torch.no_grad():
+            for i, (cat_name, obj_ids, points, labels, mask, onehot) in enumerate(test_data):
+                points = points.to(self.device)
+                labels = labels.to(self.device)
+                onehot = onehot.to(self.device)
+                out = self.model(points, onehot)
+                loss = self.loss_function(out.reshape(-1, out.size(-1)), labels.view(-1,))
+                test_loss += loss.item()
 
-            out[mask == 0] = out.min()
-            pred = torch.max(out, 2)[1]
-            self.calculate_save_mious(test_iou_table, cat_name, labels, pred)
-            if out_dir:
-                self.save_visualizations(out_dir, cat_name, obj_ids, points, labels, pred)
+                mask = mask.to(self.device)
+                out = torch.where(mask == 0, out.min(), out)
+                pred = torch.max(out, 2)[1]
+                self.calculate_save_mious(test_iou_table, cat_name, labels, pred)
+                if out_dir:
+                    self.save_visualizations(out_dir, cat_name, obj_ids, points, labels, pred)
 
         test_loss /= (i+1) 
         c_miou = test_iou_table.get_mean_category_miou()
