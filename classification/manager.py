@@ -79,15 +79,16 @@ class Manager():
         test_loss = 0
         test_label = LabelContainer()
 
-        for i, (points, gt) in enumerate(test_data):
-            points = points.to(self.device)
-            gt = gt.view(-1,).to(self.device)
-            out = self.model(points)
-    
-            loss = self.loss_function(out, gt)     
-            test_loss += loss.item()
-            pred = torch.max(out, 1)[1]
-            test_label.add(gt, pred)
+        with torch.no_grad():
+            for i, (points, gt) in enumerate(test_data):
+                points = points.to(self.device)
+                gt = gt.view(-1,).to(self.device)
+                out = self.model(points)
+
+                loss = self.loss_function(out, gt)
+                test_loss += loss.item()
+                pred = torch.max(out, 1)[1]
+                test_label.add(gt, pred)
 
         test_loss /= (i+1)
         test_acc = test_label.get_acc()
